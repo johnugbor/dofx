@@ -127,7 +127,7 @@ table {
 .market-table td:nth-child(2), .market-table td:nth-child(3), .market-table th:nth-child(2), .market-table th:nth-child(3) {
     overflow: hidden;
     max-width: 70px;
-    min-width: 70px;
+
 }
 .market-table td, .market-table th {
     

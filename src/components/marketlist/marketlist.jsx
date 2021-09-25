@@ -83,11 +83,11 @@ return(<>
 						<button class="asset-open">
 							<span onClick={()=>toggleTradeButton()}>Close</span>
 						</button>
-						:<button class="asset-open">
-							<span onClick={() => {setModalShow(true);
+						:<button class="asset-open" onClick={() => {setModalShow(true);
 									dispatch(edit(index.data));}
 
-							}>Trade</span>
+							}>
+							Trade
 						</button>}
 						<div>
 						  <OverlayTrigger
