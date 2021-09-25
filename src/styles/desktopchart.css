@@ -1,0 +1,49 @@
+.tradechart-buysell-buttons{
+	
+	/*z-index: 1;*/
+	position:absolute;
+  	top: 10;
+  	left: 0;
+  	height: 25%;
+  	padding:5px;
+  	color: #fff;
+  	background-color: #252d47;
+}
+.tradechart{
+	width: 99%;
+	height: 99%;
+	position: absolute;
+  	top: 0;
+  	left: 0;
+}
+.chart-margin-lots{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.chart-margin-text{
+	color:green;
+}
+.margin-chart-container-small{
+background-color: #1a1e30;
+text-align: center;
+}
+.lots-margin-mini{
+	background-color: #252d47;}
+.decinc-btn .field{
+	width: 100% !important;
+}
+.select-trade-item{
+	width: 20% !important;
+	z-index: 5;
+	text-align: center;
+}
+.selected-item{
+background-color: #384368;
+}
+.stock-select{
+	background-color: #384368;
+}
+.css-1sflke2-menu{
+	background-color: #384368;
+
+}

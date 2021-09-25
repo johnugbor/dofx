@@ -1,25 +1,34 @@
+import {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import DesktHeader from './components/header/desktheader'
+import {DesktSidebar} from './components/sidemenu/desktsidebar'
+import {DesktopTradeView} from './components/tradeview/deskttradeview'
 
-function App() {
+
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {sideBarToggleState:false}
+  }
+
+  toggleSideBar=()=>{
+    let {sideBarToggleState} =this.state;
+    this.setState({sideBarToggleState:!sideBarToggleState});
+  }
+
+
+  render(){
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <DesktHeader toggleSettings ={this.toggleSideBar} sidebarstate={this.state.sideBarToggleState}/>
+      {//<DesktSidebar sidebarstate={this.state.sideBarToggleState}/>
+    }
+      <DesktopTradeView/>
+    </>
   );
+}
 }
 
 export default App;

@@ -1,0 +1,92 @@
+import logo from '../../logo.svg';
+import "../../styles/desktheader.css" 
+import React, {useState}  from 'react'
+function DesktHeader(props) {
+  const [ settings__opened, setSettings ] = useState(false);
+  const toggleSideBar =()=>{
+    setSettings(!settings__opened);
+  }
+  let {sidebarstate} = props;
+  let {toggleSettings} = props;
+  return<>
+  <div className="app-header">
+  	
+  	<div className="header-logo">
+	   <div>
+	  		<img src={logo} className="logo-image"/>
+	  	</div>
+  	</div>
+
+  	<div className="header-right-inner">
+
+  		<div className="header-balances">
+  			<div className="header-balances-item">
+  				<div className="header-balances-item-title">
+  					<span>Balance</span>
+  				</div>
+  				<div className="balance">€0.00</div>
+  			</div>
+  			<div className="header-balances-item">
+  				<div className="header-balances-item-title">
+  					<span>Equity</span>
+  				</div>
+  				<div className="balance">€0.00</div>
+  			</div>
+  			<div className="header-balances-item">
+  				<div className="header-balances-item-title">
+  					<span>Used Margin</span>
+  				</div>
+  				<div className="balance">€0.00</div>
+  			</div>
+  			<div className="header-balances-item">
+  				<div className="header-balances-item-title">
+  					<span>Free Margin</span>
+  				</div>
+  				<div className="balance">€0.00</div>
+  			</div>
+  			<div className="header-balances-item">
+  				<div className="header-balances-item-title">
+  					<span>Margin Level</span>
+  				</div>
+  				<div className="balance">0%</div>
+  			</div>
+  			<div className="header-balances-item">
+  				<div className="header-balances-item-title">
+  					<span>Credit</span>
+  				</div>
+  				<div className="balance">€0</div>
+  			</div>
+  			<div className="header-balances-item">
+  				<div className="header-balances-item-title">
+  					<span>Open P&amp;L</span>
+  				</div>
+  				<div className="balance balance__red">€0.00</div>
+  				</div>
+          </div>
+
+         
+
+        <div className={`header-navigation ${settings__opened ? "settings__opened" : ""}`}>
+         <div className=" header-navigation-item__user">
+          <div className={`settings ${settings__opened ? "settings__opened" : ""}`}
+          onClick={()=>toggleSettings()}>
+            <div className="settings-toggle"></div>
+
+          </div>
+          </div>
+         </div>
+
+  			
+
+
+  		</div>
+
+
+  	</div>
+
+
+  
+  </>;
+}
+
+export default DesktHeader;

@@ -1,0 +1,27 @@
+.buy-button{
+	background-color: #27ca5d;
+	width: 45%;
+}
+.sell-button{
+	background-color: #e74b43;
+	width: 45%;
+}
+.modal-content{
+	background-color: #384368;
+}
+.modal-footer{
+	border-top: 1px solid #384368;
+}
+
+.curency-icon{
+	height: 44px;
+	width: 44px;
+}
+.buy-popup-header{
+	display: flex;
+	justify-content: flex-start;
+}
+.buy-popup-header-detail{
+	display: flex;
+	flex-direction: column;
+}

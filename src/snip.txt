@@ -1,0 +1,17 @@
+<OverlayTrigger
+					      key={"placement"}
+					      placement="right"
+					      overlay={
+					        <Tooltip id={`tooltip-`}>
+					          Add to favourites
+					        </Tooltip>
+					      }>
+							<button data-tip="true" 
+									data-for="star-EURUSDecn" 
+									class={`asset-star ${favouriteStar?"asset-star__on": "asset-star__off"}`}
+									onClick ={
+										()=>toggleStar()
+									}>
+								
+							</button>
+						</OverlayTrigger>
