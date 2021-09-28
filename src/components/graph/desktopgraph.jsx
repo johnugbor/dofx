@@ -53,7 +53,7 @@ function Desktopgraph() {
 	<div className="chartcontainer"> 
 		<div className="tradechart">
 		<TradingViewWidget
-		height = "300"
+		height = "450"
 		width = "700"
     symbol={orderDetail.symbol}
     theme={Themes.DARK}

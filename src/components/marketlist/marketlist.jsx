@@ -12,6 +12,7 @@ import AssetInfoModal from "./assetinfo";
 function MarketList(props){
 	var LeftToggle =props.LeftToggleProps;
 	const [ favouriteStar, setFavouriteStar ] = useState(false);
+	const [searchExist, setSearchExist] = useState(false);
 
 	const toggleStar = ()=>{
     setFavouriteStar(!favouriteStar);
@@ -27,13 +28,29 @@ const [ trade, setTrade ] = useState(false);
   const searchData = useSelector(state=>state.search.search)
 
   const dispatch = useDispatch()
-
-  const onGroupSelectChange = () =>{
+  
+  const onGroupSelectChange = (e) =>{
+  	const {value} = e.target;
+  	dispatch(changeGroup(value));
 
   }
-  const onSearchInputChange = () =>{
+  const searchWord=(SearchedString, StringToSearch)=>{
+  	let refinedSearchedString = SearchedString.toLowerCase();
+  	let refinedStringToSearch = StringToSearch.toLowerCase();
+  	let startIndex=0;
+  	let resultIndex=-1;
+  	resultIndex = refinedSearchedString.indexOf(refinedStringToSearch, startIndex);
+  	return resultIndex;
+  }
+  
+  const onSearchInputChange = (e) =>{
+  	
+  	let {value} = e.target;
+  	dispatch(changeSearch(value));
+  	
 
   }
+  
 
    const [modalShow, setModalShow] = useState(false);
    const [assetInfoModalShow,setAssetInfoModalShow] = useState(false);
@@ -46,7 +63,26 @@ return(<>
 
 
 
-				<div className="market-header">
+				<div className="stochsearch-header">
+
+
+					<div className="all-stock-sarch ">
+						<input type="text" name="stochsearch" className="stocksearch-input" placeholder="Search" value={searchData} onChange={(e)=>onSearchInputChange(e)}/>
+					</div>
+					<div className="group-stock-search">
+						<select name="trade-group-select" className="group-select" onChange ={(e)=>onGroupSelectChange(e)} disabled={searchData.length>0?true:false} >
+						<option className="trade-list-option" value="Most Popular">Most Popular</option>
+						<option className="trade-list-option" value="Top Movers">Top Movers</option>
+						<option className="trade-list-option" value="All">All</option>
+						<option className="trade-list-option" value="Forex">Forex</option>
+						<option className="trade-list-option" value="Stocks">Stocks</option>
+						<option className="trade-list-option" value="Commodities">Commodities</option>
+						<option className="trade-list-option" value="Indices">Indices</option>
+						<option className="trade-list-option" value="Cryptocurrencies">Cryptocurrencies</option>
+						<option className="trade-list-option" value="ETF">ETF</option>
+							
+						</select>
+					</div>
 
 				</div>
 		
@@ -65,7 +101,13 @@ return(<>
 		</thead>
 		<tbody>
 		{marketData.map((index)=>(
-			<tr class="asset ">
+		 (
+		 	(searchWord(index.data.clearName,searchData)>0)|| 
+		 	( 
+		 		(searchData.length>0?!true:!false)
+		 		&&(groupData=== index.data.group||groupData==="All")
+		 	)
+		 	)&&<tr class="asset ">
 				<td>
 					<div class="asset-info">
 					  

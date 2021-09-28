@@ -129,7 +129,7 @@ export const assetSlice = createSlice({
 	"stops_level":0,
 	"lotCurrency":"EUR",
 	"displayName":"EURUSD",
-	"clearName":"EURUSD",
+	"clearName":"bURUSD",
 	"priceOpen":1.181,
 	"popular":true,
 	"mover":0
@@ -175,7 +175,7 @@ export const orderSlice = createSlice({
 	"stops_level":0,
 	"lotCurrency":"EUR",
 	"displayName":"EURUSD",
-	"clearName":"EURUSD",
+	"clearName":"AURUSD",
 	"priceOpen":1.18137,
 	"popular":true,
 	"mover":0

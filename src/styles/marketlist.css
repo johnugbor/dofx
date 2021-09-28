@@ -1,6 +1,10 @@
 .market__mini .market-header{
 display: none;
 }
+.market__mini .stochsearch-header{
+display: none;
+
+}
 .market-header {
     background-color: #384368;
   
@@ -490,4 +494,68 @@ market-table tr.panel .chart-sell-buy {
 .market-table td .chat-sell-buy {
     white-space:normal;
     text-align: left;
+}
+ 
+
+.all-stock-sarch{
+    background-color: #252d47;
+    margin-right: 5px;
+    width: 40%;
+    border-radius: 5px;
+}
+.group-stock-search{
+    background-color: #252d47;
+    margin-left: 5px;
+     width: 60%;
+    border-radius: 5px;
+}
+.stochsearch-header{
+    background-color: #384368;
+    padding: 20px;
+    border-bottom: 1px solid #1a1e30;
+    display: flex;
+    justify-content: space-between;
+}
+.stocksearch-input{
+    
+    background-color: #252d47;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    box-shadow: none;
+    font-size: 14px;
+    line-height: 1em;
+    padding: 14.5px 30px 14.5px 14px;
+    background-size: 19px 19px;
+    background-repeat: no-repeat;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTlweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMTkgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CjwhLS1HZW5lcmF0b3I6IHNrZXRjaHRvb2wgNjEuMiAoMTAxMDEwKSAtIGh0dHBzOi8vc2tldGNoLmNvbS0tPgogICAgPHRpdGxlPgogICAgICAgIEVBMDkzRjg0LThFQjYtNDQ4RC04MTkyLTM3NkI2MzgzQjAyNgogICAgPC90aXRsZT4KICAgIDxkZXNjPgogICAgICAgIENyZWF0ZWQgd2l0aCBza2V0Y2h0b29sLgogICAgPC9kZXNjPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IldlYnRyYWRlci1EZXNrdG9wLURhcmstVjMtLS1QbGF0Zm9ybSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTM3MS4wMDAwMDAsIC0xODQuMDAwMDAwKSIgZmlsbD0iIzZGN0RBQiI+CiAgICAgICAgICAgIDxnIGlkPSJMRUZULVNJREUtLS1SZXNwb25zaXZlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgNzguMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8ZyBpZD0iVG9wIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMC4wMDAwMDAsIDkzLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJVSS9EYXJrL1NlYXJjaC9QbGFjZWhvbGRlciIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjAwLjAwMDAwMCwgMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9Ikljb25zL1NlYXJjaCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTUxLjAwMDAwMCwgMTMuMDUwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMS4zNzUwMDQ4OCw4LjI1MDAyOTMgQzEuMzc1MDA0ODgsNC40NTkxNDA4MyA0LjQ1OTE0MDgzLDEuMzc1MDA0ODggOC4yNTAwMjkzLDEuMzc1MDA0ODggQzEyLjA0MDkxNzgsMS4zNzUwMDQ4OCAxNS4xMjUwNTM3LDQuNDU5MTQwODMgMTUuMTI1MDUzNyw4LjI1MDAyOTMgQzE1LjEyNTA1MzcsMTIuMDQwOTE3OCAxMi4wNDA5MTc4LDE1LjEyNTA1MzcgOC4yNTAwMjkzLDE1LjEyNTA1MzcgQzQuNDU5MTQwODMsMTUuMTI1MDUzNyAxLjM3NTAwNDg4LDEyLjA0MDkxNzggMS4zNzUwMDQ4OCw4LjI1MDAyOTMgTTE0LjU0NDExNDEsMTMuNTcxMjk4MiBDMTUuNzYxNjgxLDEyLjEzMzczMDYgMTYuNTAwMDU4NiwxMC4yNzc0NzQgMTYuNTAwMDU4Niw4LjI1MDAyOTMgQzE2LjUwMDA1ODYsMy43MDA4MjU2NCAxMi43OTkyMzMsLTEuNzc2MzU2ODRlLTE1IDguMjUwMDI5MywtMS43NzYzNTY4NGUtMTUgQzMuNzAwODI1NjQsLTEuNzc2MzU2ODRlLTE1IDUuMzI5MDcwNTJlLTE1LDMuNzAwODI1NjQgNS4zMjkwNzA1MmUtMTUsOC4yNTAwMjkzIEM1LjMyOTA3MDUyZS0xNSwxMi43OTkyMzMgMy43MDA4MjU2NCwxNi41MDAwNTg2IDguMjUwMDI5MywxNi41MDAwNTg2IEMxMC4yNzc0NzQsMTYuNTAwMDU4NiAxMi4xMzM3MzA2LDE1Ljc2MTY4MSAxMy41NzE5ODU3LDE0LjU0NDExNDEgTDE3LjgyNjUxMTUsMTguNzk4NjM5OSBDMTcuOTYwNTc0NCwxOC45MzI3MDI5IDE4LjEzNjU3NTEsMTkuMDAwMDc4MSAxOC4zMTI1NzU3LDE5LjAwMDA3ODEgQzE4LjQ4ODU3NjMsMTkuMDAwMDc4MSAxOC42NjQ1NzY5LDE4LjkzMjcwMjkgMTguNzk4NjM5OSwxOC43OTg2Mzk5IEMxOS4wNjc0NTM0LDE4LjUzMDUxNCAxOS4wNjc0NTM0LDE4LjA5NDYzNzQgMTguNzk4NjM5OSwxNy44MjY1MTE1IEwxNC41NDQxMTQxLDEzLjU3MTI5ODIgWiIvPgogICAgICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K);
+    background-position: center center;
+    width: 100%;
+    background-position-x: calc(100% - 10px);
+    font-size: 14px;
+}
+.group-select{
+
+     background-color: #252d47;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 14px;
+    line-height: 1em;
+    padding: 14px;
+    width: 100%;
+    color: #fff;
+    position: relative;
+}
+.trade-group-select.trade-list-option{
+    color: #aab7e1;
+    padding: 10px 14px;
+    line-height: 1em;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.list-option-active{
+    color: #fff;
 }
