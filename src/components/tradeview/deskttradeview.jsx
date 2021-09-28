@@ -40,7 +40,7 @@ function DesktopTradeView(){
 		
 
 	<div className="index-right" >
-		<div className="index-right-top" style={{height:322}}>
+		<div className="index-right-top" style={{height:450}}>
 			<div className={`charts ${"charts__0"} ${"charts__grid"}`}>
 			<Desktopgraph/>
 			
