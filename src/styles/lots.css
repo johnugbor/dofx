@@ -63,7 +63,7 @@
 .field__with-steps{
     display: flex;
     justify-content: space-around;
-    margin-top: 11px;
+  border-bottom: 1px solid #384368;
 }
 .field {
     background-color: #1a1e30;

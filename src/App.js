@@ -23,7 +23,7 @@ class App extends Component {
   return (
     <>
       <DesktHeader toggleSettings ={this.toggleSideBar} sidebarstate={this.state.sideBarToggleState}/>
-      {//<DesktSidebar sidebarstate={this.state.sideBarToggleState}/>
+      <DesktSidebar sidebarstate={this.state.sideBarToggleState}/>
     }
       <DesktopTradeView/>
     </>

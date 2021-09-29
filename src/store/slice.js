@@ -253,6 +253,18 @@ export const searchSlice = createSlice({
  },
 })
 
+export const menuSlice = createSlice({
+	name:'menu',
+	initialState:{
+		settings_opened:false,
+	},
+	reducers:{
+		toggleMenu:(state, action)=>{
+			state.settings_opened=action.payload ;
+		}
+	}
+})
+
 
 
 const reducer = combineReducers({
@@ -260,7 +272,8 @@ const reducer = combineReducers({
 	order:orderSlice.reducer,
 	chart:chartSlice.reducer,
 	group:groupSlice.reducer,
-	search:searchSlice.reducer
+	search:searchSlice.reducer,
+	menu:menuSlice.reducer
 })
 
 
@@ -271,6 +284,7 @@ export const { edit,increaselots,decreaselots,  increasestoplevel,  decreasestop
 export const { changeChart } = chartSlice.actions
 export const { changeSearch } = searchSlice.actions
 export const { changeGroup } = groupSlice.actions
+export const {toggleMenu } = menuSlice.actions
 export default reducer
 
  

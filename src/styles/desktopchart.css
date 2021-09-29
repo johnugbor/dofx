@@ -2,12 +2,46 @@
 	
 	/*z-index: 1;*/
 	position:absolute;
-  	top: 10;
+  	top: 65px;
   	left: 0;
-  	height: 25%;
-  	padding:5px;
+  	height: 5em;
+  	padding:8px;
   	color: #fff;
   	background-color: #252d47;
+}
+.tradechart-current{
+	position:absolute;
+	top: 15px;
+	left: 0;
+	display: flex;
+	width: 80% !important;
+
+}
+.tradechart-current-icon{
+
+	
+	background-color: #252d47;
+	padding: 5px;
+	height: 3em;
+	color: #fff;
+    flex-grow: 0.2;
+	display: flex;
+
+}
+.price-change{
+	color: green;
+}
+.tradechart-current-price{
+
+
+	background-color: #252d47;
+	margin-left: 4px;
+	padding: 5px;
+	height: 3em;
+	color: #fff;
+	flex-grow: 0.2;
+	display: flex;
+	justify-content: space-around;
 }
 .tradechart{
 	width: 99%;
@@ -31,6 +65,7 @@ text-align: center;
 	background-color: #252d47;}
 .decinc-btn .field{
 	width: 100% !important;
+	height: 100% !important;
 }
 .select-trade-item{
 	width: 20% !important;
@@ -46,4 +81,8 @@ background-color: #384368;
 .css-1sflke2-menu{
 	background-color: #384368;
 
+}
+.trade-icon{
+	width: 28px;
+	height: 28px;
 }

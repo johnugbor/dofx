@@ -1,13 +1,17 @@
 import logo from '../../logo.svg';
 import "../../styles/desktheader.css" 
+import {toggleMenu} from "../../store/slice"
+import {useSelector, useDispatch} from 'react-redux'
 import React, {useState}  from 'react'
 function DesktHeader(props) {
-  const [ settings__opened, setSettings ] = useState(false);
+     const dispatch = useDispatch();
+   const settings__opened = useSelector(state=>state.menu.settings_opened)
   const toggleSideBar =()=>{
-    setSettings(!settings__opened);
+    dispatch(toggleMenu(!settings__opened));
   }
   let {sidebarstate} = props;
   let {toggleSettings} = props;
+ 
   return<>
   <div className="app-header">
   	
@@ -60,7 +64,7 @@ function DesktHeader(props) {
   				<div className="header-balances-item-title">
   					<span>Open P&amp;L</span>
   				</div>
-  				<div className="balance balance__red">€0.00</div>
+  				<div className="balance balance__red" >€0.00</div>
   				</div>
           </div>
 
@@ -69,7 +73,7 @@ function DesktHeader(props) {
         <div className={`header-navigation ${settings__opened ? "settings__opened" : ""}`}>
          <div className=" header-navigation-item__user">
           <div className={`settings ${settings__opened ? "settings__opened" : ""}`}
-          onClick={()=>toggleSettings()}>
+          onClick={()=>toggleSideBar()}>
             <div className="settings-toggle"></div>
 
           </div>

@@ -5,6 +5,7 @@ import SellButton from "../marketlist/sellbutton"
 import "../../styles/desktopchart.css" 
 import {useSelector, useDispatch} from 'react-redux'
 import Select from 'react-dropdown-select';
+import EuroUsdIcon from "../../images/eurousd.png"
 import {update, edit,increaselots, decreaselots, changeChart} from "../../store/slice"
 const options = [
   { value: 'chocolateAMZN', label: 'AMZN' },
@@ -63,8 +64,30 @@ function Desktopgraph() {
 
   </div>
   
+    <div className="">
+
+  <div className="tradechart-current">
+  <div className="tradechart-current-icon">
+  	
+  			<div className="chart-margin-lots"><img src={EuroUsdIcon} className="trade-icon"/></div> 	
+  			<div className="chart-margin-lots"><p>eurusd</p> </div>
+  		
+
+  </div>
+  <div className="tradechart-current-price">
+  		
+  			<div className="chart-margin-lots"><p>1.38$</p> </div> 	
+  			<div className="chart-margin-lots"><p className="price-change">3,22%</p> </div>
+  	
+  		
+
+  </div>
+
+  </div>
   <div className=" d-flex tradechart-buysell-buttons">
 	<BuyButton/>
+
+
 	<div className=" d-flex chart-margin-lots">
 		
 
@@ -93,6 +116,7 @@ function Desktopgraph() {
 		
 	</div> 
 	<SellButton/>
+	</div>
 	</div>
 	</div>
 </>

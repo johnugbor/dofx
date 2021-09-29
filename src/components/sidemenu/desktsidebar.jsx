@@ -12,12 +12,12 @@ import ActivityLog from '../icons/activity-log.svg'
 import LightTheme from '../icons/light-theme.svg'
 import TradingSignal from '../icons/trading-signal.svg'
 import LogoutIcon from '../icons/logout.svg'
+import {useSelector} from 'react-redux'
 function DesktSidebar(props){
-const [ settings__opened, setSettings ] = useState(true);
-const [ language__opened, setLanguageState ] = useState(true);
-  const toggleSideBar =()=>{
-    setSettings(!settings__opened);
-  }
+	 const settings__opened = useSelector(state=>state.menu.settings_opened)
+
+const [ language__opened, setLanguageState ] = useState(false);
+ 
   const toggleLanguageDropdown =()=>{
     setLanguageState (!language__opened);
   }
