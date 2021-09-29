@@ -10,7 +10,7 @@ function SellButton() {
   return (
     <>
       <Button  className="sell-button" onClick={() => setModalShow(true)}>
-        Sale
+        Sell
       </Button>
 
       <BuyModal

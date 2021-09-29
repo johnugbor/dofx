@@ -85,7 +85,7 @@ function Desktopgraph() {
 
   </div>
   <div className=" d-flex tradechart-buysell-buttons">
-	<BuyButton/>
+	<SellButton/>
 
 
 	<div className=" d-flex chart-margin-lots">
@@ -115,7 +115,7 @@ function Desktopgraph() {
 		</div>
 		
 	</div> 
-	<SellButton/>
+	<BuyButton/>
 	</div>
 	</div>
 	</div>
