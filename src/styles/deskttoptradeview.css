@@ -85,7 +85,6 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 .index-right-resizer {
     border: none;
     background: transparent;
-    background-color: transparent;
     box-shadow: none;
     position: relative;
     cursor: row-resize;
@@ -97,7 +96,18 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     background-color: #6f7dab;
     z-index: 2;
 }
-
+.index-right-resizer:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    width: 31px;
+    height: 7px;
+    border-radius: 5px;
+    background-color: #6f7dab;
+}
 .widgets-footer {
     height: 100%;
     position: relative;
