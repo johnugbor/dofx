@@ -54,8 +54,14 @@ function Desktopgraph() {
 	<div className="chartcontainer"> 
 		<div className="tradechart">
 		<TradingViewWidget
-		height = "450"
-		width = "700"
+		height = "600"
+		width = "100%"
+		interval = "1"
+		timezone = "Europe/London"
+		style = "1"
+		hide_top_toolbar = "true"
+		hide_legend = "true"
+		container_id = "tradingview_47bf8"
     symbol={orderDetail.symbol}
     theme={Themes.DARK}
     locale="en"/>
@@ -84,6 +90,8 @@ function Desktopgraph() {
   </div>
 
   </div>
+
+  
   <div className=" d-flex tradechart-buysell-buttons">
 	<SellButton/>
 
@@ -117,6 +125,8 @@ function Desktopgraph() {
 	</div> 
 	<BuyButton/>
 	</div>
+
+
 	</div>
 	</div>
 </>

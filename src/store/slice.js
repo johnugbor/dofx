@@ -265,7 +265,23 @@ export const menuSlice = createSlice({
 	}
 })
 
-
+export const mobileMenuSlice = createSlice({
+	name:'mobilemenu',
+	initialState:{
+		mobilemenu:{
+			"status":false,
+			"currentView":2,
+		} 
+	},
+	reducers:{
+		toggleMobileMenu:(state, action)=>({
+			...state, mobilemenu : action.payload
+		}),
+		switchMobileView:(state,action)=>({
+			...state, mobilemenu : action.payload
+		}),
+	}
+})
 
 const reducer = combineReducers({
 	asset:assetSlice.reducer,
@@ -273,7 +289,8 @@ const reducer = combineReducers({
 	chart:chartSlice.reducer,
 	group:groupSlice.reducer,
 	search:searchSlice.reducer,
-	menu:menuSlice.reducer
+	menu:menuSlice.reducer,
+	mobilemenu:mobileMenuSlice.reducer
 })
 
 
@@ -285,6 +302,7 @@ export const { changeChart } = chartSlice.actions
 export const { changeSearch } = searchSlice.actions
 export const { changeGroup } = groupSlice.actions
 export const {toggleMenu } = menuSlice.actions
+export const {toggleMobileMenu, switchMobileView} = mobileMenuSlice.actions
 export default reducer
 
  

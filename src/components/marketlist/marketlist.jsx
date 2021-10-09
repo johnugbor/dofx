@@ -28,7 +28,7 @@ const [ trade, setTrade ] = useState(false);
   const searchData = useSelector(state=>state.search.search)
 
   const dispatch = useDispatch()
-  
+   
   const onGroupSelectChange = (e) =>{
   	const {value} = e.target;
   	dispatch(changeGroup(value));
@@ -61,7 +61,7 @@ return(<>
 
 
 
-
+ 
 
 				<div className="stochsearch-header">
 

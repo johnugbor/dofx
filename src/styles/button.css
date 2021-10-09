@@ -1,11 +1,25 @@
 .buy-button{
-	background-color: #27ca5d;
+	background-color: #3bd976 !important;;
 	width: 45%;
 }
 .sell-button{
-	background-color: #e74b43;
+	background-color: #e74b44 !important;
 	width: 45%;
 }
+
+.mobile-buy-button{
+	background-color: #3bd976 !important;
+    width: 90%;
+     margin-right: 5px;
+     margin-left: 5px;
+}
+.mobile-sell-button{
+	background-color: #e74b44 !important;
+	    width: 90%;
+	    margin-right: 5px;
+	    margin-left: 5px;
+}
+
 .modal-content{
 	background-color: #384368;
 }

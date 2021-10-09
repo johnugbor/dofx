@@ -39,9 +39,9 @@
     border: none;
     cursor: pointer;
 }
-.field__with-steps .field-value {
+/*.field__with-steps .field-value {
     width: calc(100% - 50px);
-}
+}*/
 .field-value input {
     text-align: center;
     background-color: transparent;
@@ -107,3 +107,4 @@
     font-size: 12px;
     font-family: 'roboto-bold';
 }
+
