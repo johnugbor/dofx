@@ -1,10 +1,28 @@
 .buy-button{
-	background-color: #3bd976 !important;;
+	background-color: #27ca5d !important;;
 	width: 45%;
+    text-align: center;
+    font-size: 15px;
+    font-family: roboto-bold;
+    text-transform: uppercase;
+    line-height: 1em;
+
+    background: #27ca5d !important;
+    border: solid 1px #27ca5d!important;
+
+}
+.btn-primary:hover {
+    color: inherit;
+    background-color: inherit;
+    border-color: inherit;
 }
 .sell-button{
-	background-color: #e74b44 !important;
+	background-color: #e74b43 !important;
 	width: 45%;
+	font-size: 15px;
+    font-family: roboto-bold;
+    text-transform: uppercase;
+    line-height: 1em;
 }
 
 .mobile-buy-button{
@@ -14,7 +32,7 @@
      margin-left: 5px;
 }
 .mobile-sell-button{
-	background-color: #e74b44 !important;
+	background-color: #e74b43 !important;
 	    width: 90%;
 	    margin-right: 5px;
 	    margin-left: 5px;

@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face{font-family:'roboto-light';src:url(styles/fonts/Roboto-Light.ttf) format("truetype")}
+@font-face{font-family:'roboto-regular';src:url(styles/fonts/Roboto-Regular.ttf) format("truetype")}
+@font-face{font-family:'roboto-medium';src:url(styles/fonts/Roboto-Medium.ttf) format("truetype")}
+@font-face{font-family:'roboto-bold';src:url(styles/fonts/roboto-bold.ttf) format("truetype")}
+@font-face{font-family:'roboto-black';src:url(styles/fonts/Roboto-Black.ttf) format("truetype")}

@@ -76,7 +76,7 @@ function Desktopgraph() {
   <div className="tradechart-current-icon">
   	
   			<div className="chart-margin-lots"><img src={EuroUsdIcon} className="trade-icon"/></div> 	
-  			<div className="chart-margin-lots"><p>eurusd</p> </div>
+  			<div className="chart-margin-lots"><p className="current__asset">eurusd</p> </div>
   		
 
   </div>

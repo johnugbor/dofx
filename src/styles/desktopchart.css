@@ -90,3 +90,11 @@ background-color: #384368;
 	width: 28px;
 	height: 28px;
 }
+.current__asset{line-height: 1em;
+    font-family: 'roboto-medium';
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+   text-transform: uppercase;
+   padding-top: 8px;
+   }
