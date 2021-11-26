@@ -11,7 +11,7 @@ import ModalCloseBtn from "../icons/modalclosebutton.svg"
 import {useSelector, useDispatch} from 'react-redux'
 import {update, edit,increaselots,increasestoplevel,  decreasestoplevel,  resetstoplevel, decreaselots, changeChart} from "../../store/slice"
 
-function DepositModal(props) {
+function WithdrawalModal(props) {
     const onHide = props.onHide;
     
   return ( 
@@ -30,7 +30,7 @@ function DepositModal(props) {
 
           <div className="deposit-popup-header">
           <div>
-          <span>Deposit</span>
+          <span>Withdrawal</span>
           </div>
        
           </div>
@@ -49,5 +49,5 @@ function DepositModal(props) {
   );
 }
 
-export default DepositModal;
+export default WithdrawalModal;
 

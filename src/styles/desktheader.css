@@ -4,7 +4,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #6f7dab;
 }
 
 .header-logo {
@@ -14,7 +13,7 @@
     padding: 0 20px;
 }
 .logo-image{
-	max-width: 195px;
+	max-width: 155px;
 	}
 .header-right {
     flex: 1;
@@ -56,7 +55,6 @@
     align-items: center;
 }
 .header-navigation .settings__opened{
-    background-color: #6f7cab;
 }
 .header-navigation-item__user {
     margin-left: 0;

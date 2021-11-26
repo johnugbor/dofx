@@ -10,16 +10,18 @@ import MobileBuyButton from "./mobilebuybutton"
 import MobileSellButton from "./mobilesellbutton"
 import MobileSidebar from "../sidemenu/mobilesidebar"
 import {update, edit,increaselots, decreaselots, changeChart,toggleMobileMenu, switchMobileView} from "../../store/slice"
-import { FaBars} from "react-icons/fa";
+import { FaBars,FaAngleDown} from "react-icons/fa";
 import { MdClose,MdAccountCircle } from "react-icons/md";
+import { Link } from 'react-router-dom';
 function Trade() {
 	const orderDetail = useSelector(state=>state.order.asset);
 	 const menuStatus = useSelector(state=>state.mobilemenu.mobilemenu.status)
     const selectedMenu = useSelector(state=>state.mobilemenu.mobilemenu.currentView)
-	
+	const chartheight =window.outerHeight-200;
 	 const dispatch = useDispatch();
+	 let iconStyles = { color: "white", fontSize: "1.5em",width:"2em" };
 	return (
-		<div>
+		<div className="mobile-trade">
 			
   
 
@@ -81,11 +83,6 @@ function Trade() {
 
 
 
-		<div className="language">
-
-		<MdAccountCircle style={{color:'white'}} />
-			</div>	
-
 
 			</div>
 
@@ -110,15 +107,28 @@ function Trade() {
 
 
 
-			<div className="tradechart-current-icon-mobile">
-  	
-  			<div className="chart-margin-lots-mobile"><img src={EuroUsdIcon} className="trade-icon"/></div> 	
-  			<div className="chart-margin-lots-mobile"><p>eurusd</p> </div>
+			<div >
+				<Link to="/market" >
+  	             <div className="mobile-trade-selector">
+  	              <div className="tradechart-current-icon-mobile">
+	  				<div className="chart-margin-lots-mobile">
+	  					<img src={EuroUsdIcon} className="trade-icon"/>
+	  				</div> 	
+	  				<div className="chart-margin-lots-mobile">
+	  					<p>eurusd</p> 
+	  				</div>
+	  			</div>
+	  				<div className="arrowdown">
+	  					<FaAngleDown style={iconStyles}/>
+	  				</div>
+	  			</div>
+  				</Link>
   			</div>
 
-  			<div className="mobile-chart">
+  		<div className="mobile-chart-buysell-container">	
+  		<div className="mobile-chart">
 		<TradingViewWidget
-		   height = "300"
+		   height = {chartheight}
 			width = "100%"
 			interval = "1"
 			timezone = "Europe/London"
@@ -135,10 +145,10 @@ function Trade() {
   		</div>
   			
      
-  		<div className="mobile-buysell-button-group ">
+  		<div className=" mobile-buy-sell-footer mobile-buysell-button-group ">
 <div><p className="chart-panel-money" >$4000</p></div>
 
-<div className="d-flex">
+<div className=" d-flex">
 	<MobileSellButton/>
 
 
@@ -181,6 +191,7 @@ function Trade() {
 
 <MobileSidebar/>
 
+		</div>
 		</div>
 	)
 }

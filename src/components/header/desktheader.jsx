@@ -28,25 +28,25 @@ function DesktHeader(props) {
   				<div className="header-balances-item-title">
   					<span>Balance</span>
   				</div>
-  				<div className="balance">€0.00</div>
+  				<div className="balance">$0.00</div>
   			</div>
   			<div className="header-balances-item">
   				<div className="header-balances-item-title">
   					<span>Equity</span>
   				</div>
-  				<div className="balance">€0.00</div>
+  				<div className="balance">$0.00</div>
   			</div>
   			<div className="header-balances-item">
   				<div className="header-balances-item-title">
   					<span>Used Margin</span>
   				</div>
-  				<div className="balance">€0.00</div>
+  				<div className="balance">$0.00</div>
   			</div>
   			<div className="header-balances-item">
   				<div className="header-balances-item-title">
   					<span>Free Margin</span>
   				</div>
-  				<div className="balance">€0.00</div>
+  				<div className="balance">$0.00</div>
   			</div>
   			<div className="header-balances-item">
   				<div className="header-balances-item-title">
@@ -58,13 +58,13 @@ function DesktHeader(props) {
   				<div className="header-balances-item-title">
   					<span>Credit</span>
   				</div>
-  				<div className="balance">€0</div>
+  				<div className="balance">$0</div>
   			</div>
   			<div className="header-balances-item">
   				<div className="header-balances-item-title">
   					<span>Open P&amp;L</span>
   				</div>
-  				<div className="balance balance__red" >€0.00</div>
+  				<div className="balance balance__red" >$0.00</div>
   				</div>
           </div>
 

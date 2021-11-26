@@ -2,30 +2,60 @@
 	
 	/*z-index: 1;*/
 	position:absolute;
-  	top: 65px;
-  	left: 0;
+  	top: 5px;
+  	left: 6px;
   	height: 5em;
   	padding:8px;
   	color: #fff;
   	background-color: #252d47;
+	/* border: 1px solid #384368; */
+	/* border-radius: 5px;s */
+	border-bottom-right-radius: 5px;
+	width: 350px;
 }
 .tradechart-current{
 	position:absolute;
-	top: 15px;
-	left: 0;
+	top: 5px;
+	left: 5px;
 	display: flex;
 	width: 80% !important;
 
 }
-.decinc-btn .field {
-    width: 100% !important;
-    height: 100% !important;
+
+
+.qt-box {
+	background-color: #1a1e30;
+	border-radius: 5px;
+	width: 190px;
 }
+
+.info{
+	margin-top: 65px;
+	width: 200px;
+	height: 56px;
+	padding: 5px 2px;
+}
+
+.info p {
+	padding: 10px;
+}
+
+.img-qt {
+	width: 30px;
+	padding: 2px;
+	margin-right: 7.5px;
+}
+
+article {
+	/* border: 2px solid green; */
+}
+
 .tradechart-current-icon{
 
-	
+	border: 2px solid #384368;
+	border-radius: 5px;
 	background-color: #252d47;
-	padding: 5px;
+	padding: 8px;
 	height: 3em;
 	color: #fff;
     flex-grow: 0.2;
@@ -38,9 +68,11 @@
 .tradechart-current-price{
 
 
+	border: 2px solid #384368;
+	border-radius: 5px;
 	background-color: #252d47;
+	padding: 8px;
 	margin-left: 4px;
-	padding: 5px;
 	height: 3em;
 	color: #fff;
 	flex-grow: 0.2;
@@ -61,15 +93,42 @@
 .chart-margin-text{
 	color:green;
 }
+
+.lot {
+	margin: 5px;
+	font-weight: 200;
+	font-size: 13px;
+}
+
+.margin {
+	margin: 5px;
+	font-weight: 200;
+	font-size: 13px;
+}
+
+.quick-inputs {
+	height: 37px;
+	margin-top: -4px;
+}
+
 .margin-chart-container-small{
 background-color: #1a1e30;
 text-align: center;
+border-bottom-left-radius: 5px ;
+border-bottom-right-radius: 5px ;
+margin-top: -4px;
+padding-bottom: 5px;
 }
 .lots-margin-mini{
-	background-color: #252d47;}
+	margin-top: -10px;
+	background-color: transparent;
+	
+}
 .decinc-btn .field{
 	width: 100% !important;
 	height: 100% !important;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
 }
 .select-trade-item{
 	width: 20% !important;
@@ -90,11 +149,3 @@ background-color: #384368;
 	width: 28px;
 	height: 28px;
 }
-.current__asset{line-height: 1em;
-    font-family: 'roboto-medium';
-    font-size: 14px;
-    color: #fff;
-    cursor: pointer;
-   text-transform: uppercase;
-   padding-top: 8px;
-   }

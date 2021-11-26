@@ -21,14 +21,15 @@ function BuyModal(props) {
     const onHide = props.onHide;
    const orderDetails = useSelector(state=>state.order.asset);
      const dispatch = useDispatch();
-
+    var asset = orderDetails.displayName
+     var assetimg = orderDetails.img
      var lots_margin_value = orderDetails.priceOpen;
       var stop_level_value = orderDetails.stops_level;
      const [step, setStep] = useState(1);
      const [stopLevel, setStopLevel] = useState(1);
      const [profitLossSwitch, setProfitLossSwitch]= useState(false);
-     const lotsStep = 1;
-     const unitStep = 1000;
+     const lotsStep = 0.01;
+     const unitStep = 100;
      const amountMultiplier = 100;
      const ratingMultiplier = 0.01;
 
@@ -59,6 +60,7 @@ function BuyModal(props) {
     <Modal
       {...props}
       size="md"
+      className="modal"
       aria-labelledby="buy-modal"
       centered
        animation={true}
@@ -70,12 +72,12 @@ function BuyModal(props) {
 
           <div className="buy-popup-header">
           <div>
-         <i><Image className="curency-icon" src={EuroUsd} alt="">< /Image></i>
+         <i><Image className="curency-icon" src={assetimg} alt="">< /Image></i>
 
           </div>
           <div className="buy-popup-header-detail">
-          <span> EUROUSD</span>
-          <span> Current market:</span>
+          <span> {asset}</span>
+          <span className="utxt" > Current market: {lots_margin_value} </span>
           </div>
           </div>
           
@@ -96,12 +98,14 @@ function BuyModal(props) {
       
         <div className="two-div-row-flex">
           <div className="lots-tab">
-              <span> Amount</span>
+              {/* <span> Amount</span> */}
               <div className="lots-tab-btns">
                 <Button className={tabBg?"unit-btn ":"lots-btn "}  disabled={tabBg?false:true} onClick={()=>chanegeStep(lotsStep)}>Lots</Button> 
                 <Button className={tabBg?"lots-btn":"unit-btn"} disabled={tabBg?true:false} onClick={()=>chanegeStep(unitStep)}>Units </Button> 
               </div>
-              <span>Asset leverage:1:32</span>
+              <div className="lots-unit-status" >
+                      <span> Amount</span>
+                      </div>
           </div>
 
 
@@ -114,8 +118,8 @@ function BuyModal(props) {
     </div><button class="field-inc" onClick={()=>dispatch(increaselots())}></button>
     </div>
     <div className="lots-unit-status">
-      {tabBg&&(<span>Lots:{lots_margin_value}</span>)}
-    {!tabBg&&(<span>Units:{lots_margin_value*unitStep}</span>)}</div>
+      {tabBg&&(<span>Lots: {lots_margin_value}</span>)}
+    {!tabBg&&(<span>Units: {lots_margin_value*unitStep}</span>)}</div>
     </div>
 
     </div>
@@ -124,7 +128,6 @@ function BuyModal(props) {
 
      <div className="two-div-row-flex">
           <div>
-              <span className="span-sl"> Close at lose(SL)</span>
              <select name="SL" className ="form-control sl-dropdown"  
                               onChange={(e)=>inputSelectionChange(e)}>
 
@@ -132,6 +135,9 @@ function BuyModal(props) {
                           <option   value = "amount">Amount</option>
                        
                       </select>
+                      <div className="lots-unit-status" >
+                      <span> Stop Loss(SL)</span>
+                      </div>
               
           </div>
 
@@ -140,27 +146,31 @@ function BuyModal(props) {
       <div class="chart-sell-buy-field-input">
 
     <div class="field field__with-steps field__disabled">
+      
       <button class="field-dec" onClick={()=>dispatch(decreasestoplevel())}></button>
+      
     <div class="field-value">
-      <input type="text" disabled="" value={stop_level_value*stopLevel||"set"}/>
+      
+      <input type="text" disabled="" placeholder="Set" value={stop_level_value*stopLevel||""}/>
+      
     </div>
       <button class="field-inc" onClick={()=>dispatch(increasestoplevel())}></button>
     </div>
     
 
     <div className="lots-unit-status">
-      {!profitLossSwitch&&(<><span>Profit/Loss:</span><span className="profit_and_loss">{stop_level_value*amountMultiplier}$</span></>
+      {!profitLossSwitch&&(<><span>Profit/Loss: </span><span className="profit_and_loss">{stop_level_value*amountMultiplier}$  </span>  </>
         )}
-    {profitLossSwitch&&(<><span>Profit/Loss:</span><span className="profit_and_loss">{stop_level_value*ratingMultiplier}</span></>)}</div>
+    {profitLossSwitch&&(<><span>Profit/Loss: </span><span className="profit_and_loss">{stop_level_value*ratingMultiplier}</span>  </>)}</div>
     
 
+    {!orderDetails.stops_level}
 
 
 
     </div>
 
 
-   {!orderDetails.stops_level|| <button className="order-row-col-clear" onClick={()=>dispatch(resetstoplevel())}> </button>}
 
     </div>
     </div>
@@ -194,7 +204,7 @@ function BuyModal(props) {
       </Button>
 
            <Button  className="sell-button" >
-                  Sale
+                  Sell
       </Button>
 
         </div> 
@@ -204,9 +214,6 @@ function BuyModal(props) {
 
        </div>
       </Modal.Body>
-      <Modal.Footer>
-       
-      </Modal.Footer>
     </Modal>
   );
 }

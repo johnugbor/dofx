@@ -1,18 +1,21 @@
 
 .settings-panel {
-    background-color: #6f7cab;
+    background-color: #384368;
     color: #fff;
     position: absolute;
     overflow: auto;
-    right: 0;
-    top: 10%;
-    width: 235px;
+    right: 1.2px;
+    top: 9.2%;
+    width: 165px;
     transition: all 0.3s;
     font-size: 14px;
     word-break: break-all;
     white-space: normal;
     max-height: calc(100vh - 102px);
     z-index: 12;
+    border-bottom-left-radius: 10px;
+    -webkit-box-shadow: inset 0px 0px 37px -14px rgba(0,0,0,0.4); 
+box-shadow: inset 0px 0px 37px -14px rgba(0,0,0,0.4);
    
   
 
@@ -128,7 +131,7 @@ i.language-flag >img{
 .language-list__open .language-list__static {
     visibility: visible;
 }
-..language-list__open {
+.language-list__open {
     visibility: hidden;
 }
 .language-toggle::before {
@@ -169,11 +172,18 @@ i.language-flag >img{
 }
 .settings-ul{
     list-style: none;
+    padding: 0px;
+    margin-bottom: 0px;
 
 }
 .settings-ul .sidebar-icon{
     padding: 4px;
 }
 .settings-ul li{
-   padding: 4px; 
+   padding: 12px 20px; 
+   cursor: pointer;
 }
+
+.settings-ul li:hover  {
+     background-color: #445280bb;
+ }

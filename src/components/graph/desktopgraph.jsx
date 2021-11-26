@@ -54,17 +54,29 @@ function Desktopgraph() {
 	<div className="chartcontainer"> 
 		<div className="tradechart">
 		<TradingViewWidget
-		height = "600"
-		width = "100%"
+		height = "550"
+		width = "100.5%"
 		interval = "1"
-		timezone = "Europe/London"
-		style = "1"
-		hide_top_toolbar = "true"
-		hide_legend = "true"
-		container_id = "tradingview_47bf8"
-    symbol={orderDetail.symbol}
-    theme={Themes.DARK}
-    locale="en"/>
+  		timezone = "Europe/London"
+  		style = "1"
+        hide_top_toolbar = "true"
+  		hide_legend = "true"
+		toolbar_bg = "#f1f3f6"
+  		container_id = "tradingview_4f804"
+		symbol={orderDetail.symbol}
+		theme={Themes.DARK}
+		locale="en"
+		save_image = "false"
+		disabled_features="create_volume_indicator_by_default"
+
+
+
+
+
+
+		/>
+
+
     
   
 
@@ -72,26 +84,17 @@ function Desktopgraph() {
   
     <div className="">
 
-  <div className="tradechart-current">
-  <div className="tradechart-current-icon">
-  	
-  			<div className="chart-margin-lots"><img src={EuroUsdIcon} className="trade-icon"/></div> 	
-  			<div className="chart-margin-lots"><p className="current__asset">eurusd</p> </div>
-  		
+	<div className="info d-flex tradechart-buysell-buttons">
 
-  </div>
-  <div className="tradechart-current-price">
-  		
-  			<div className="chart-margin-lots"><p>1.38$</p> </div> 	
-  			<div className="chart-margin-lots"><p className="price-change">3,22%</p> </div>
-  	
-  		
 
-  </div>
+	<div className="qt-box d-flex chart-margin-lots">
+		
+	<p> <img className="img-qt" src={orderDetail.img} alt="" />  {orderDetail.displayName}  ${orderDetail.priceOpen}</p>
+		
+		
+	</div> 
+	</div>
 
-  </div>
-
-  
   <div className=" d-flex tradechart-buysell-buttons">
 	<SellButton/>
 
@@ -100,11 +103,11 @@ function Desktopgraph() {
 		
 
 		<div className="lots-margin-mini d-flex flex-column justify-content-between ">
-		<div className="pt-2"><span>Lots</span></div>
-		<div className="pr-2"><span>Margin </span></div>
+		<div className="lot pt-2"><span>Lots</span></div>
+		<div className="margin pr-2"><span>Margin </span></div>
 		</div>
 
-		<div className="decinc-btn d-flex flex-column">
+		<div className="quick-inputs decinc-btn-d d-flex flex-column">
 
 		<div className="field field__with-steps ">
 		<button className="field-dec" onClick={()=>dispatch(decreaselots())} >
@@ -125,8 +128,6 @@ function Desktopgraph() {
 	</div> 
 	<BuyButton/>
 	</div>
-
-
 	</div>
 	</div>
 </>

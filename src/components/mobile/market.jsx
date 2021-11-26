@@ -6,6 +6,7 @@ import EuroUsdIcon from "../../images/eurousd.png"
 import MobileSidebar from "../sidemenu/mobilesidebar"
 import { FaBars} from "react-icons/fa";
 import { MdClose,MdAccountCircle } from "react-icons/md";
+import { Link } from 'react-router-dom';
 function Market() {
  const marketData = useSelector(state=>state.asset.asset)
   const searchData = useSelector(state=>state.search.search)
@@ -89,10 +90,7 @@ const searchWord=(SearchedString, StringToSearch)=>{
 
 
 
-		<div className="mobile-language">
-
-		<MdAccountCircle style={{color:'white'}} />
-			</div>	
+		
 
  
 			</div>
@@ -125,7 +123,7 @@ const searchWord=(SearchedString, StringToSearch)=>{
 				(searchWord(index.data.clearName,searchData)===0||searchWord(index.data.clearName,searchData)>0)&&
 				<>
 
-				<div className="mobile-table-row asset" onClick={()=>dispatch(edit(index.data))} >
+				<Link to="/"><div className="mobile-table-row asset" onClick={()=>dispatch(edit(index.data))} >
 						
 						<div className="mobile-table-col">
 							<img className="mobile-asset-icon" src="/AA-38b3dbb5705b1ea9f68365920fd93c36.png"/>
@@ -141,7 +139,7 @@ const searchWord=(SearchedString, StringToSearch)=>{
 						</div>
 
 						
-						</div>
+						</div></Link>
 						<MobileSidebar/>
 						</>
 						))}

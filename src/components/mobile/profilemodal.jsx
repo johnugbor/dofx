@@ -11,7 +11,7 @@ import ModalCloseBtn from "../icons/modalclosebutton.svg"
 import {useSelector, useDispatch} from 'react-redux'
 import {update, edit,increaselots,increasestoplevel,  decreasestoplevel,  resetstoplevel, decreaselots, changeChart} from "../../store/slice"
 
-function DepositModal(props) {
+function ProfileModal(props) {
     const onHide = props.onHide;
     
   return ( 
@@ -30,7 +30,7 @@ function DepositModal(props) {
 
           <div className="deposit-popup-header">
           <div>
-          <span>Deposit</span>
+          <span>Profile</span>
           </div>
        
           </div>
@@ -42,12 +42,12 @@ function DepositModal(props) {
           
       </Modal.Header>
       <Modal.Body>
-       <iframe width="360" height="430" src="https://www.youtube.com/embed/UJz4to1otDw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="360" height="430" src="https://www.youtube.com/embed/UJz4to1otDw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </Modal.Body>
       
     </Modal>
   );
 }
 
-export default DepositModal;
+export default ProfileModal;
 

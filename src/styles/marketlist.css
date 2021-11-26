@@ -5,6 +5,9 @@ display: none;
 display: none;
 
 }
+
+
+
 .market-header {
     background-color: #384368;
   
@@ -111,7 +114,15 @@ display: none;
     position: relative;
     z-index: 1;
     background-color: #1a1e30;
+    height: 797px;
+    
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 0px;
+  }
+
 .market-table table {
     font-size: 14px;
     width: 100%;
@@ -213,7 +224,10 @@ table {
     vertical-align: middle;
     margin-right: 8px;
     padding: 2px 0;
+    margin-left: 8px;
+    border-radius: 45%;
 }
+
 img {
     border: 0;
 }
@@ -275,6 +289,9 @@ img {
     display: inline-block;
     vertical-align: middle;
     color: #fff;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+
 }
 .asset-button svg{
       fill: #fff;
@@ -512,7 +529,6 @@ market-table tr.panel .chart-sell-buy {
 .stochsearch-header{
     background-color: #384368;
     padding: 20px;
-    border-bottom: 1px solid #1a1e30;
     display: flex;
     justify-content: space-between;
 }
@@ -534,6 +550,15 @@ market-table tr.panel .chart-sell-buy {
     background-position-x: calc(100% - 10px);
     font-size: 14px;
 }
+
+input::placeholder {
+    color: #6f7dab;
+}
+
+option   {
+    border: 1px solid white !important;
+}
+
 .group-select{
 
      background-color: #252d47;
@@ -546,6 +571,7 @@ market-table tr.panel .chart-sell-buy {
     width: 100%;
     color: #fff;
     position: relative;
+    border-radius: 5px;
 }
 .trade-group-select.trade-list-option{
     color: #aab7e1;

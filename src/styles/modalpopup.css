@@ -1,3 +1,9 @@
+.modal {
+    max-width: 400px;
+    margin: 1.75rem auto;
+
+}
+
 .two-div-row-flex{
 	display: flex;
 	flex-direction: row;
@@ -5,38 +11,63 @@
 	padding-top:11px;
 	padding-bottom:11px;
 	color: #fff;
+    margin-right: -25px;
 }
 .span-sl{
 	color: #fff;
 }
 .white-horizontal-line{
-	background: #fff;
+	background: transparent;
+    height: 0px;
+    border: none;
 }
+
+
 .single-div-flex{
 	display: flex;
 	text-align: center;
 }
 .unit-btn{
-	background: #384368!important;
-	color: #fff !important;
-	width: 50%;
+	background: #1a1e30 !important;
+color: #fff !important;
+width: 50%;
+border-radius: 2px;
+border: 0px;
+height: 38px;
 }
 .lots-btn {
 	background:#fff!important;
 	color: #384368 !important;
 	width: 50%;
+    border: none;
+    border-radius: 2px;
+    opacity: 1 !important;
+    height: 38px;
 
 
 }
+
+input::placeholder {
+    color: #6f7dab;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none !important;
+}
+
+
 .lots-tab-btns{
 	color: #fff;
-	background: #384368!important;
-	border:1px solid #fff;
-
 }
+
+.utxt {
+    font-size: 12px;
+}
+
 .buy-button{
 	background:  #27ca5d!important;
 	outline:  #27ca5d!important;
+    padding: 15px;
 }
 .sell-button{
 	background:   #e74b43!important;
@@ -46,6 +77,11 @@
 .form-control .sl-dropdown{
 	 background-color:#384368!important;
 	}
+
+select[name="SL"] {
+    height: 38px !important;
+}
+
 .buy-popup-header-detail{
 	color: #fff;
 	margin-left: 22px;
@@ -73,6 +109,7 @@
 }
 .lots-unit-status{
 	text-align: left;
+    padding: 10px 1px;
 }
 .order-row-col-clear {
     top: 36px;

@@ -87,10 +87,7 @@ const searchWord=(SearchedString, StringToSearch)=>{
 
 
 
-		<div className="language">
-
-		<MdAccountCircle style={{color:'white'}} />
-			</div>	
+		
 
 
 			</div>

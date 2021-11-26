@@ -10,7 +10,18 @@ function DesktopTradeView(){
   	setLeftToggle(!LeftToggle);}
 
   	const [deltaPosition, setDeltaPosition]=useState(247);
+    const [activeTab, setActiveTab] = useState(true)
 
+    const setOpenPositionActive = () =>{
+    	if(activeTab){
+    		setActiveTab(false)
+    	}
+    }
+    const setHistoryActive = () =>{
+    	if(!activeTab){
+    		setActiveTab(true)
+    	}
+    }
 
   const handleDrag = (e, ui) => {
 
@@ -57,15 +68,7 @@ function DesktopTradeView(){
 
 
 
-<Draggable
-        axis="y"
-        handle=".index-right-resizer"
-        defaultPosition={{x: 0, y: 0}}
-        position={null}
-        grid={[25, 25]}
-        scale={1}
-        
-        onDrag={handleDrag}>
+
 
 
 		<div className="index-right-bottom" style={{height:deltaPosition}}>
@@ -89,117 +92,271 @@ function DesktopTradeView(){
 
         
         <div className="dragzone">
-          <button className="index-right-resizer"></button>
+         
           
      
 			<div className="tabs-control">
-					<button className="tabs-control-item">
+					<button className={`tabs-control-item ${activeTab?"":"tabs-control-item__active"}`} onClick={()=>setOpenPositionActive()}>
 					<span>Open Positions</span>
-					 <div className="table-count">(0)</div>
-					 </button><button className="tabs-control-item tabs-control-item__active"><span>Pending Orders</span> 
-					 <div className="table-count">(0)</div></button>
-					 <button className="tabs-control-item">
-					 <span>History</span> 
-					 <div className="table-count">(0)</div>
-					 </button><button className="tabs-control-item">
-					 <span>Transactions history</span> 
 					 <div className="table-count">(0)</div>
 					 </button>
 
+					 <button className={`tabs-control-item ${activeTab?"tabs-control-item__active":""}`} onClick={()=>setHistoryActive()}>
+					 <span>History</span> 
+					 <div className="table-count">(0)</div>
+					 </button>
+
+					
+
 			 </div>
+
+			 {activeTab?
+			 <><div className ="desk-openposition-header">
+			{/*History header*/}
+			 		<span>Symbol</span>
+			 		<span>Ticket</span>
+			 		<span>Time</span>
+			 		<span>Type</span>
+			 		<span>Volume</span>
+			 		
+			 		<span>S/L</span>
+			 		<span>T/P</span>
+			 		<span>Price</span>
+			 	
+			 		<span>Swaps</span>
+			 
+			 		<span>Profits</span>
+			 </div>
+			 <div className="tabs-content">
+			 {/*History data*/}
+
+			 <div className="mobile-table-row asset" >
+						
+						<div className="mobile-table-col">
+						<span className="mobile-asset-value">gbpusd</span>
+						</div>
+
+						<div className="mobile-table-col withstyle1-mobile" >
+							<span className="mobile-asset-value">2136547211</span>
+						</div>
+
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">2021.10.10 20:59:32 </span>
+						</div>
+
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">buy</span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.01</span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">1.38280 </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.000000 </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.000000 </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">1.38282  </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.00 </span>
+						</div>
+
+						</div>
+
+
+
+ <div className="mobile-table-row asset" >
+						
+						<div className="mobile-table-col">
+						<span className="mobile-asset-value">gbpusd</span>
+						</div>
+
+						<div className="mobile-table-col withstyle1-mobile" >
+							<span className="mobile-asset-value">2136547211</span>
+						</div>
+
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">2021.10.10 20:59:32 </span>
+						</div>
+
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">buy</span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.01</span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">1.38280 </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.000000 </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.000000 </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">1.38282  </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.00 </span>
+						</div>
+
+						</div>
+
+
+
+
+						 
+
+
+
+
+
+
+
+					</div></>
+
+      :
+			 <><div className ="desk-history-header">
+			  {/*Open Positions header*/}
+			 		<span>Order id</span>
+			 		
+			 		<span>Type</span>
+			 		<span>Open time</span>
+			 		<span>Close time</span>
+			 		<span>Volume</span>
+			 		<span>Symbol</span>
+			 	
+			 		<span>Open price</span>
+			 		<span>Close price</span>
+			 			<span>SL</span>
+			 		<span>TP</span>
+			 			<span>Swaps</span>
+			 		
+			 		<span>Profits</span>
+			 </div>
+	 <div className="tabs-content">
+			 {/*Open Positions data*/}
+   
+						 <div className="mobile-table-row asset" >
+						
+						<div className="mobile-table-col withstyle1-mobile" >
+							<span className="mobile-asset-value">2136547211</span>
+						</div>
+
+							<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">buy</span>
+						</div>
+						
+
+					
+							<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">2021.10.10 20:59:32 </span>
+						</div>
+						
+
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">2021.10.10 20:59:32 </span>
+						</div>
+
+						
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.01</span>
+						</div>
+
+						<div className="mobile-table-col">
+						<span className="mobile-asset-value">2gbpusd</span>
+						</div>
+
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">1.38280 </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.000000 </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.000000 </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.00 </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">1.38282  </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.00 </span>
+						</div>
+
+						</div> 
+						 
+						 
+
+
+						  <div className="mobile-table-row asset" >
+						
+						<div className="mobile-table-col withstyle1-mobile" >
+							<span className="mobile-asset-value">2136547211</span>
+						</div>
+
+							<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">buy</span>
+						</div>
+						
+
+					
+							<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">2021.10.10 20:59:32 </span>
+						</div>
+						
+
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">2021.10.10 20:59:32 </span>
+						</div>
+
+						
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.01</span>
+						</div>
+
+						<div className="mobile-table-col">
+						<span className="mobile-asset-value">2gbpusd</span>
+						</div>
+
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">1.38280 </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.000000 </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.000000 </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.00 </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">1.38282  </span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">0.00 </span>
+						</div>
+
+						</div> 
+						 
+						 
+					</div>
+			</>}
 
 </div>
  
 
 
-			 <div className="tabs-content">
-					 <div className="tabs-content-item tabs-content-item__active">
-						 <div className="wrap-orders">
-							 <div className="table open-positions-table">
-									 <div className="table-row table-row__head">
-										 <div className="table-col filter-col">
-										 <div className="filter-col-inner">
-										 <div className="filter-text"><span>Id</span></div>
-										 <div className="filter-arrow"></div>
-										 </div>
-										 </div>
-										 <div className="table-col table-time filter-col">
-										 <div className="filter-col-inner">
-										 <div className="filter-text"><span>Time</span></div>
-										 <div className="filter-arrow filter-arrow__DESC"></div>
-										 </div>
-										 </div>
-										 <div className="table-col filter-col">
-										 <div className="filter-col-inner">
-										 <div className="filter-text"><span>Type</span></div>
-										 <div className="filter-arrow"></div>
-										 </div>
-										 </div>
-										 <div className="table-col filter-col">
-										 <div className="filter-col-inner">
-										 <div className="filter-text"><span>Volume</span></div>
-										 <div className="filter-arrow"></div>
-										 </div>
-										 </div>
-										 <div className="table-col filter-col">
-										 <div className="filter-col-inner">
-										 <div className="filter-text"><span>Symbol</span></div>
-										 <div className="filter-arrow"></div>
-										 </div>
-										 </div>
-										 <div className="table-col filter-col">
-										 <div className="filter-col-inner">
-										 <div className="filter-text"><span>SL</span></div>
-										 <div className="filter-arrow"></div>
-										 </div>
-										 </div>
-										 <div className="table-col filter-col">
-										 <div className="filter-col-inner">
-										 <div className="filter-text"><span>TP</span></div>
-										 <div className="filter-arrow"></div>
-										 </div>
-										 </div>
-										 <div className="table-col filter-col">
-										 <div className="filter-col-inner">
-										 <div className="filter-text"><span>Price</span></div>
-										 <div className="filter-arrow">
-										 </div>
-										 </div>
-										 </div>
-										 <div className="table-col filter-col">
-										 <div className="filter-col-inner">
-										 <div className="filter-text"><span>Commission</span></div>
-										 <div className="filter-arrow"></div>
-										 </div>
-										 </div>
-										 <div className="table-col filter-col">
-										 <div className="filter-col-inner">
-										 <div className="filter-text"><span>Swaps</span></div>
-										 <div className="filter-arrow">
-										 </div>
-										 </div>
-										 </div>
-										 <div className="table-col"><span>Current price</span></div>
-									 </div>
-								 <div>
-									 <div className="checkbox "><label><input type="checkbox"/>
-										 <div className="checkbox-inner">
-										 <div className="checkbox-toggle">
-										 </div>
-										 </div>
-									 </label>
-									 </div>
-									 <div className="close-all">
-										 <button data-tip="true" 
-									 		data-for="close-all-tip" 
-									 		className="close-all-button" 
-									 		disabled=""></button>
-									 </div>
-								 </div>
-							 </div>
-						 </div>
-					 </div>
-			 </div>
+
 
 			 </div>
 		 </div>
@@ -208,7 +365,7 @@ function DesktopTradeView(){
 		</div>
 
 
-</Draggable>
+
 
 
 
