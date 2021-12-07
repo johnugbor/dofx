@@ -4,7 +4,7 @@ import {Modal,Button} from 'react-bootstrap'
 import "../../styles/button.css"
 import BuyModal  from "./buymodal"
 
-function SellButton() {
+function SellButton(props) {
 	const [modalShow, setModalShow] = useState(false);
 
   return (

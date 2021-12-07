@@ -63,9 +63,18 @@ function MobileSidebar(props) {
 
 			<li ><Link to="/open-position"><img src={EuroUsdIcon} className="menu-icon-mobile"/><span>Open Positions</span></Link></li>
 			<li ><Link to="/history"><img src={EuroUsdIcon} className="menu-icon-mobile"/><span>History</span></Link></li>
-			<li onClick={() => setProfileModalShow(true)}><img src={EuroUsdIcon} className="menu-icon-mobile"/><span>Profile</span></li>
-			<li onClick={() => setModalShow(true)}><img src={EuroUsdIcon} className="menu-icon-mobile"/><span>Deposit</span></li>
-			<li onClick={() => setWithdrawModalShow(true)}><img src={EuroUsdIcon} className="menu-icon-mobile"/><span>Withdraw</span></li>
+			
+			<li onClick={() => setProfileModalShow(true)}>
+
+			<img src={EuroUsdIcon} className="menu-icon-mobile"/><span>Profile</span></li>
+			
+			<li onClick={() => setModalShow(true)}>
+
+
+			<img src={EuroUsdIcon} className="menu-icon-mobile"/><span>Deposit</span></li>
+			<li onClick={() => setWithdrawModalShow(true)}>
+
+			<img src={EuroUsdIcon} className="menu-icon-mobile"/><span>Withdraw</span></li>
 			<li onClick={()=>{logout()}}><span>Logout</span></li>
 
 

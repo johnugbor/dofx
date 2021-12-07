@@ -1,10 +1,21 @@
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
+import axios from "axios";
+import Cookies from "js-cookie";
+import {rootUrl} from "../utilities/constants";
 import ResizePanel from "react-resize-panel";
 import "../../styles/deskttoptradeview.css" 
 import Draggable from 'react-draggable';
 import MarketList from '../marketlist/marketlist';
 import Desktopgraph from "../graph/desktopgraph";
+import { useSelector, useDispatch } from 'react-redux'
+import { updateHistory, updateOpenPosition } from "../../store/slice"
+import {historyEndpoint,openpositionEndpoint} from "../utilities/endpoints";
+
 function DesktopTradeView(){
+	const dispatch = useDispatch();
+	const historyData = useSelector(state=>state.history.history)
+	const openPositionData = useSelector(state=>state.openposition.openposition)
+	 const authTokens = useSelector(state=>state.access.access).token
 	const [LeftToggle,setLeftToggle ] =useState(false);
   const indexLeftToggle =()=>{
   	setLeftToggle(!LeftToggle);}
@@ -30,7 +41,42 @@ function DesktopTradeView(){
       
     );
   };
+  
+   const history = async()=>{
 
+   	const response = await axios.get(`${rootUrl}${historyEndpoint}`,{headers:
+    {
+      'Authorization' : `Bearer ${authTokens}`,
+      'Content-Type' : 'application/json',
+    }});
+   	const status = await response.status
+
+   	if(status===200){
+   		console.log(response.data.data)
+   		dispatch(updateHistory(response.data.data))
+   	}
+   }
+
+
+   const openposition = async()=>{
+
+   	const response = await axios.get(`${rootUrl}${openpositionEndpoint}`,{headers:
+    {
+      'Authorization' : `Bearer ${authTokens}`,
+      'Content-Type' : 'application/json',
+    }});
+   	const status = await response.status
+
+   	if(status===200){
+   		console.log(response.data.data)
+   		dispatch(updateOpenPosition(response.data.data))
+   	}
+   }
+
+useEffect(() => {
+	history();
+	openposition();
+}, [activeTab])
 
 	return(
 	<>
@@ -115,98 +161,55 @@ function DesktopTradeView(){
 			{/*History header*/}
 			 		<span>Symbol</span>
 			 		<span>Ticket</span>
-			 		<span>Time</span>
+			 		<span>Close Time</span>
 			 		<span>Type</span>
 			 		<span>Volume</span>
 			 		
 			 		<span>S/L</span>
-			 		<span>T/P</span>
-			 		<span>Price</span>
 			 	
-			 		<span>Swaps</span>
 			 
 			 		<span>Profits</span>
 			 </div>
 			 <div className="tabs-content">
 			 {/*History data*/}
 
-			 <div className="mobile-table-row asset" >
+			 {historyData.map((index)=>(
+			 <div className="mobile-table-row asset" key={index.id} >
 						
 						<div className="mobile-table-col">
-						<span className="mobile-asset-value">gbpusd</span>
+						<span className="mobile-asset-value">{index.symbol}</span>
 						</div>
-
-						<div className="mobile-table-col withstyle1-mobile" >
-							<span className="mobile-asset-value">2136547211</span>
-						</div>
-
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">2021.10.10 20:59:32 </span>
-						</div>
-
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">buy</span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.01</span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">1.38280 </span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.000000 </span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.000000 </span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">1.38282  </span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.00 </span>
-						</div>
-
-						</div>
-
-
-
- <div className="mobile-table-row asset" >
-						
 						<div className="mobile-table-col">
-						<span className="mobile-asset-value">gbpusd</span>
+						<span className="mobile-asset-value">{index.id}</span>
 						</div>
 
 						<div className="mobile-table-col withstyle1-mobile" >
-							<span className="mobile-asset-value">2136547211</span>
+							<span className="mobile-asset-value">{index.close_time||"23:21:23"}</span>
 						</div>
 
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">2021.10.10 20:59:32 </span>
-						</div>
+					
 
 						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">buy</span>
+						<span className="mobile-asset-value">{index.trade_type}</span>
 						</div>
 						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.01</span>
+						<span className="mobile-asset-value">{index.asset_volume}</span>
 						</div>
 						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">1.38280 </span>
+						<span className="mobile-asset-value">{index.stop_loss_value} </span>
 						</div>
 						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.000000 </span>
+						<span className="mobile-asset-value"> {index.profit}</span>
 						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.000000 </span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">1.38282  </span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.00 </span>
-						</div>
+					
+						
+						
 
-						</div>
+						</div>)
+						)}
+
+
+
 
 
 
@@ -228,126 +231,66 @@ function DesktopTradeView(){
 			 		
 			 		<span>Type</span>
 			 		<span>Open time</span>
-			 		<span>Close time</span>
+			 		
 			 		<span>Volume</span>
 			 		<span>Symbol</span>
 			 	
-			 		<span>Open price</span>
-			 		<span>Close price</span>
+		
+		
 			 			<span>SL</span>
-			 		<span>TP</span>
-			 			<span>Swaps</span>
+			 
+			 
 			 		
 			 		<span>Profits</span>
 			 </div>
 	 <div className="tabs-content">
 			 {/*Open Positions data*/}
    
-						 <div className="mobile-table-row asset" >
+						 
+						 
+
+
+						 {openPositionData.map((index,key)=>(
+						 			 <div className="mobile-table-row asset" key= {index.id} >
 						
-						<div className="mobile-table-col withstyle1-mobile" >
-							<span className="mobile-asset-value">2136547211</span>
-						</div>
-
-							<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">buy</span>
-						</div>
-						
-
-					
-							<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">2021.10.10 20:59:32 </span>
-						</div>
-						
-
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">2021.10.10 20:59:32 </span>
-						</div>
-
-						
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.01</span>
-						</div>
-
 						<div className="mobile-table-col">
-						<span className="mobile-asset-value">2gbpusd</span>
+						<span className="mobile-asset-value">{index.id}</span>
 						</div>
 
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">1.38280 </span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.000000 </span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.000000 </span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.00 </span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">1.38282  </span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.00 </span>
-						</div>
-
-						</div> 
-						 
-						 
-
-
-						  <div className="mobile-table-row asset" >
-						
-						<div className="mobile-table-col withstyle1-mobile" >
-							<span className="mobile-asset-value">2136547211</span>
-						</div>
-
-							<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">buy</span>
-						</div>
 						
 
+						
+
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">{index.trade_type}</span>
+						</div>
+
+						<div className="mobile-table-col withstyle1-mobile" >
+							<span className="mobile-asset-value">{index.open_time||"23:24:21"}</span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">{index.cost}</span>
+						</div>
+
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">{index.symbol}</span>
+						</div>
+						<div className="mobile-table-col withstyle1-mobile" >
+						<span className="mobile-asset-value">{index.stop_loss_value} </span>
+						</div>
 					
-							<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">2021.10.10 20:59:32 </span>
-						</div>
-						
-
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">2021.10.10 20:59:32 </span>
-						</div>
-
 						
 						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.01</span>
+						<span className="mobile-asset-value">{index.profit}</span>
 						</div>
+			
 
-						<div className="mobile-table-col">
-						<span className="mobile-asset-value">2gbpusd</span>
-						</div>
+						</div>)
+						)}
 
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">1.38280 </span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.000000 </span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.000000 </span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.00 </span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">1.38282  </span>
-						</div>
-						<div className="mobile-table-col withstyle1-mobile" >
-						<span className="mobile-asset-value">0.00 </span>
-						</div>
 
-						</div> 
-						 
+
+
 						 
 					</div>
 			</>}

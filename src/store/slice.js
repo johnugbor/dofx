@@ -1683,6 +1683,180 @@ export const mobileMenuSlice = createSlice({
 	}
 })
 
+
+
+export const profileSlice = createSlice({
+	name: 'profile',
+	initialState: {
+		profile: {
+		"full_name": "John Dev",
+		"email":"devjohn@igmc.com",
+		"phone":"+2396068585",
+		"currency":"USD",
+		"country":"NG"
+	}
+},
+	reducers: {
+		setProfile: (state, action) => ({
+
+			...state,profile: action.payload
+		}),
+	}, 
+})
+
+export const financepanelSlice=createSlice({
+
+	name:'financepanel',
+	initialState:{
+		financepanel:{
+			"usedmargin":240.00,
+			"stoploss":0.00,
+			"profit":980.00,
+
+		}
+	},
+
+	reducers:{
+
+		setFinPanel:(state,action)=>({
+			...state, financepanel:action.payload
+			}),
+		},
+	})
+
+export const balanceSlice = createSlice({
+
+	name:"balance",
+	initialState:{
+		balance:20.03
+	},
+	reducers:{
+		setBalance:(state,action)=>{
+		 state.balance = action.payload
+
+		},
+
+	},
+})
+
+
+
+
+export const historySlice = createSlice({
+	name: 'history',
+	initialState: {
+		history: [
+
+ {
+ 	open_time:11111111,
+	asset_name :222222222,
+	asset_volume :333333333333,
+	trade_type: 4444444444,
+	cost:555555555555555,
+	open_price:666666666,
+	profit:7777777777,
+	leverage:8888888888,
+	stop_loss_value:8888888888,
+	stop_loss_price:555555555,
+	current_price:4444444444,
+	is_trade_open :333333333333,
+	close_time :222222222,
+	symbol:"sytb"
+
+
+				
+			},
+
+
+			{
+	open_time:11111111,
+	asset_name :222222222,
+	asset_volume :333333333333,
+	trade_type: 4444444444,
+	cost:555555555555555,
+	open_price:666666666,
+	profit:7777777777,
+	leverage:8888888888,
+	stop_loss_value:8888888888,
+	stop_loss_price:555555555,
+	current_price:4444444444,
+	is_trade_open :333333333333,
+	close_time :222222222,
+	symbol:"sytb"
+
+			},
+
+		],
+	},
+	reducers: {
+		updateHistory: (state, action) => ({
+
+			...state, history:action.payload
+		}),
+	},
+
+})
+
+
+export const openpositionSlice = createSlice({
+	name: 'openposition',
+	initialState: {
+		openposition: [
+
+ {	open_time:11111111,
+	asset_name :222222222,
+	asset_volume :333333333333,
+	trade_type: 4444444444,
+	cost:555555555555555,
+	open_price:666666666,
+	profit:7777777777,
+	leverage:8888888888,
+	stop_loss_value:8888888888,
+	stop_loss_price:555555555,
+	current_price:4444444444,
+	is_trade_open :333333333333,
+	close_time :222222222,
+	symbol:"sytb"
+
+
+
+				
+			},
+
+
+			{
+	open_time:11111111,
+	asset_name :222222222,
+	asset_volume :333333333333,
+	trade_type: 4444444444,
+	cost:555555555555555,
+	open_price:666666666,
+	profit:7777777777,
+	leverage:8888888888,
+	stop_loss_value:8888888888,
+	stop_loss_price:555555555,
+	current_price:4444444444,
+	is_trade_open :333333333333,
+	close_time :222222222,
+	symbol:"sytb"
+
+				
+			},
+
+		],
+	},
+	reducers: {
+		updateOpenPosition: (state, action) => ({
+
+			...state, openposition:action.payload
+		}),
+	},
+
+})
+
+
+
+
 const reducer = combineReducers({
 	asset: assetSlice.reducer,
 	order: orderSlice.reducer,
@@ -1691,7 +1865,12 @@ const reducer = combineReducers({
 	search: searchSlice.reducer,
 	menu: menuSlice.reducer,
 	mobilemenu: mobileMenuSlice.reducer,
-	access:accessSlice.reducer
+	access:accessSlice.reducer,
+	profile:profileSlice.reducer,
+	financepanel:financepanelSlice.reducer,
+	balance:balanceSlice.reducer,
+	openposition:openpositionSlice.reducer,
+	history:historySlice.reducer,
 })
 
 
@@ -1705,4 +1884,9 @@ export const { changeGroup } = groupSlice.actions
 export const { toggleMenu } = menuSlice.actions
 export const { toggleMobileMenu, switchMobileView } = mobileMenuSlice.actions
 export const {setAccessTokenUuid} = accessSlice.actions
+export const {setProfile} = profileSlice.actions
+export const {setFinPanel} = financepanelSlice.actions
+export const {setBalance} = balanceSlice.actions
+export const {updateHistory} = historySlice.actions
+export const {updateOpenPosition} = openpositionSlice.actions
 export default reducer

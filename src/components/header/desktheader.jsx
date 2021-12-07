@@ -6,6 +6,8 @@ import React, {useState}  from 'react'
 function DesktHeader(props) {
      const dispatch = useDispatch();
    const settings__opened = useSelector(state=>state.menu.settings_opened)
+   const balance = useSelector(state=>state.balance.balance)
+   const financepanel = useSelector(state=>state.financepanel.financepanel)
   const toggleSideBar =()=>{
     dispatch(toggleMenu(!settings__opened));
   }
@@ -28,7 +30,7 @@ function DesktHeader(props) {
   				<div className="header-balances-item-title">
   					<span>Balance</span>
   				</div>
-  				<div className="balance">$0.00</div>
+  				<div className="balance">${balance}</div>
   			</div>
   			<div className="header-balances-item">
   				<div className="header-balances-item-title">
@@ -40,13 +42,13 @@ function DesktHeader(props) {
   				<div className="header-balances-item-title">
   					<span>Used Margin</span>
   				</div>
-  				<div className="balance">$0.00</div>
+  				<div className="balance">${financepanel.usedmargin}</div>
   			</div>
   			<div className="header-balances-item">
   				<div className="header-balances-item-title">
   					<span>Free Margin</span>
   				</div>
-  				<div className="balance">$0.00</div>
+  				<div className="balance">${balance}</div>
   			</div>
   			<div className="header-balances-item">
   				<div className="header-balances-item-title">
@@ -64,7 +66,7 @@ function DesktHeader(props) {
   				<div className="header-balances-item-title">
   					<span>Open P&amp;L</span>
   				</div>
-  				<div className="balance balance__red" >$0.00</div>
+  				<div className="balance balance__red" >${financepanel.profit}</div>
   				</div>
           </div>
 

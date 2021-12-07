@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import "../../styles/login.css";
 import LocalStorageService from "../utilities/localStorageService";
 import {Link, Redirect } from "react-router-dom";
@@ -6,11 +6,11 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import {rootUrl} from "../utilities/constants";
 import {useForm} from "react-hook-form";
-import { loginEndpoint,twofaEndpoint,loginAfterTwoFaEndpoint } from "../utilities/endpoints";
+import { loginEndpoint,twofaEndpoint,loginAfterTwoFaEndpoint, financepanelEndpoint,balanceEndpoint} from "../utilities/endpoints";
 import {useAuth,useUuid} from "../context/authcontext";
 import {Container,Image,Row, Col} from "react-bootstrap";
 import {useDispatch,useSelector} from "react-redux";
-import {setAccessTokenUuid} from "../../store/slice";
+import {setAccessTokenUuid,setProfile,setFinPanel,setBalance} from "../../store/slice";
 const csrfToken = Cookies.get('csrftoken');
 export default function TwoFactorAuth (props){
   
@@ -21,9 +21,9 @@ export default function TwoFactorAuth (props){
   const [rememberMeChecked, setRememberMeChecked] =useState(true);
     const dispatch = useDispatch()
     const accessData = useSelector(state => state.access.access)
-
+    const authTokens = useSelector(state=>state.access.access).token
    const togglePasswordField =()=>{
-     setSwitchPassView(!switchPassView);
+     setSwitchPassView(!switchPassView); 
    }
  const handleRemeberCheckBoxChange =()=>{
     setRememberMeChecked(!rememberMeChecked);
@@ -63,7 +63,14 @@ axios.post(`${rootUrl}${loginAfterTwoFaEndpoint}`,{ "email":accessData.recovery_
 
         }));
 
-
+        dispatch(setProfile(
+          {
+    "full_name": resp.data.user.full_name,
+    "email":resp.data.user.email,
+    "phone":resp.data.user.phone_number,
+    "currency":resp.data.user.currency,
+    "country":resp.data.user.phone_number
+  }))
       setToken(resp.data.access_token);
       setUuid(resp.data.user.id);
       setLoggedIn(true);
@@ -82,27 +89,6 @@ axios.post(`${rootUrl}${loginAfterTwoFaEndpoint}`,{ "email":accessData.recovery_
       })
     .catch(error=>{setIsError(true);
       setIsLoading(false);});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -128,6 +114,50 @@ axios.post(`${rootUrl}${loginAfterTwoFaEndpoint}`,{ "email":accessData.recovery_
      //this.setState({userUuid:id});
    }
 
+
+ const currentBalance = async ()=> {
+  const response = await  axios.get(`${rootUrl}${balanceEndpoint}`,{headers:
+    {
+      'Authorization' : `Bearer ${authTokens}`,
+      'Content-Type' : 'application/json',
+    }});
+
+  const status = await response.status;
+
+  if(status===200){
+    console.log(response.data)
+    dispatch(setBalance(response.data.data.balance))
+  }
+
+   }
+
+   const financepanel = async ()=>{
+
+    const response = await axios.get(`${rootUrl}${financepanelEndpoint}`,{headers:
+    {
+      'Authorization' : `Bearer ${authTokens}`,
+      'Content-Type' : 'application/json',
+    }});
+      const status = await response.status;
+       if(status===200){
+    console.log(response.data)
+    dispatch(setFinPanel({
+      "usedmargin":response.data.data.usedmargin,
+      "stoploss":response.data.data.stoploss,
+      "profit":response.data.data.profit,
+
+    }))
+  }
+
+
+
+   }
+
+
+useEffect(()=>{
+  currentBalance();
+  financepanel();
+},[isLoggedIn])
 
   if(isLoggedIn){
     return <Redirect push to = {{pathname:"/"}} />;

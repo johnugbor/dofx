@@ -14,9 +14,14 @@ import TradingSignal from '../icons/trading-signal.svg'
 import LogoutIcon from '../icons/logout.svg'
 import {useSelector} from 'react-redux'
 import LocalStorageService from "../utilities/localStorageService";
+import DepositModal  from "../mobile/depositmodal"
+import WithdrawalModal  from "../mobile/withdrawalmodal"
+import ProfileModal  from "../mobile/profilemodal"
 import { useHistory } from "react-router-dom";
-function DesktSidebar(props){
+
+function DesktSidebar(props){ 
  const history = useHistory();
+ 
 	 const [isLoggedIn, setIsLoggedIn] =useState(false);
     const {loginId,loginToken} =props;
     const logout =()=>{
@@ -25,7 +30,10 @@ function DesktSidebar(props){
 			history.push('/login');
       }
 
-
+      const [modalShow, setModalShow] = useState(false);
+	 const [modalWithdrawShow, setWithdrawModalShow] = useState(false);
+	  const [modalProfileShow, setProfileModalShow] = useState(false);
+	
 
 
 	 const settings__opened = useSelector(state=>state.menu.settings_opened)
@@ -41,16 +49,22 @@ return<>{settings__opened?
 		<div className="settings-panel-inner">
 			<div className="settings-account">
 				<ul  className="settings-ul">
+ 
+				
+			<li onClick={() => setProfileModalShow(true)}>
 
-				<li>
 					<i className="sidebar-icon">
 					<Image src={ProfileAvarter} alt="change-language-icon"/>
 				</i> <span>Profile</span></li>
-				<li>
+					
+			<li onClick={() => setModalShow(true)}>
+
 					<i className="sidebar-icon">
 					<Image src={OneClick} alt="change-language-icon"/>
 				</i> <span>Deposit</span></li>
-				<li>
+					<li onClick={() => setWithdrawModalShow(true)}>
+
+			
 					<i className="sidebar-icon">
 					<Image src={LightTheme} alt="change-language-icon"/>
 				</i> <span>Withdraw</span></li>
@@ -70,6 +84,19 @@ return<>{settings__opened?
 			</div>
 		</div>
 	</div>:""}
+
+	<DepositModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
+      <WithdrawalModal
+        show={modalWithdrawShow}
+        onHide={() => setWithdrawModalShow(false)}
+      />
+      <ProfileModal
+        show={modalProfileShow}
+        onHide={() => setProfileModalShow(false)}
+      />
 	</>
 }
 export {DesktSidebar};

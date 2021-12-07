@@ -1,39 +1,49 @@
 import {useState} from 'react'
 import {Modal,Button, Image} from 'react-bootstrap'
 import EuroUsd from "../../images/eurousd.png" 
-
+import BuySellAmountField from  "./buysellamountfield"
 import { Dropdown, DropdownButton } from "react-bootstrap";
-
+import ProfitLossDropdown from "./profitlossdropdown"
 import "../../styles/modalpopup.css"
-
+import BuyButton from "./buybutton"
+import SellButton from "./sellbutton"
+import BuySellIndicator from "./buysellindicator" 
 import ModalCloseBtn from "../icons/modalclosebutton.svg"
-
+import AssetBalaance from "./assetbalance"
 import {useSelector, useDispatch} from 'react-redux'
 import {update, edit,increaselots,increasestoplevel,  decreasestoplevel,  resetstoplevel, decreaselots, changeChart} from "../../store/slice"
 
 function ProfileModal(props) {
-    const onHide = props.onHide;
-    const profile = useSelector(state=>state.profile.profile);
     
-  return ( 
+    const onHide = props.onHide;
+   const profile = useSelector(state=>state.profile.profile);
+     
+  return (
     <Modal
       {...props}
-      size="sm"
-      aria-labelledby="deposit-modal"
+      size="md"
+      className="modal"
+      aria-labelledby="buy-modal"
       centered
        animation={true}
-        scrollable
-        contentClassName="deposit-modal-content"
+        scrollable={true}
 
     >
       <Modal.Header >
-        <Modal.Title id="deposit-modal" >
+        <Modal.Title id="buy-modal" >
 
-          <div className="deposit-popup-header">
-          <div>
-          <span>Profile</span>
-          </div>
-       
+          <div className="buy-popup-header">
+         {/* <div>
+         <i><Image className="curency-icon" src={assetimg} alt="">< /Image></i>
+
+          </div>*/}
+          <div className="buy-popup-header-detail">
+          <span> {profile.full_name}</span>
+          <span> {profile.email}</span>
+          <span> {profile.currency}</span>
+          <span> {profile.phone}</span>
+          <span> {profile.country}</span>
+           </div>
           </div>
           
 
@@ -43,18 +53,18 @@ function ProfileModal(props) {
           
       </Modal.Header>
       <Modal.Body>
-        <div className="profile-popup">
-        <div >
-          <span>Name: </span><span> {profile.full_name}</span>
-        </div>
-          <div><span>Email:</span> <span> {profile.email}</span> </div>
-           <div><span>Currency:</span><span> {profile.currency}</span> </div>
-           <div><span>Phone:</span><span> {profile.phone}</span> </div>
-           <div><span>Country:</span><span> {profile.country}</span> </div>
-           </div>
-          
-           </Modal.Body>
+       <div>
+
+
+
       
+
+      
+
+
+        <div>
+    
+      </Modal.Body>
     </Modal>
   );
 }

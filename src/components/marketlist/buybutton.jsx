@@ -1,9 +1,10 @@
+import React from 'react'
 import {useState} from 'react'
-import {Button} from 'react-bootstrap'
+import {Modal,Button} from 'react-bootstrap'
 
 import "../../styles/button.css"
 import BuyModal  from "./buymodal"
-function BuyButton(props) {
+function BuyButton() {
   const [modalShow, setModalShow] = useState(false);
 
   return (
