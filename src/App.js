@@ -112,9 +112,9 @@ const    setUuid =(data)=>{
 
         <><Router>
         <Switch>
-        <Route exact path="/" component={NewDesktop}/>
+        <ProtectedRoute exact path="/" component={NewDesktop}/>
 
-        <Route exact path="/" component={NewDesktop}/>
+        
         <Route exact path="/login/" component={Login}/>
         <Route exact path="/two-fa/" component={TwoFactorAuth}/>
 
