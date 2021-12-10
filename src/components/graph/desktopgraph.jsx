@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import TradingViewWidget, { Themes } from 'react-tradingview-widget';
 import BuyButton from "../marketlist/buybutton"
 import SellButton from "../marketlist/sellbutton"
@@ -7,12 +7,13 @@ import {useSelector, useDispatch} from 'react-redux'
 import Select from 'react-dropdown-select';
 import EuroUsdIcon from "../../images/eurousd.png"
 import {update, edit,increaselots, decreaselots, changeChart} from "../../store/slice"
+import BuyModal  from "../marketlist/buymodal"
 const options = [
   { value: 'chocolateAMZN', label: 'AMZN' },
   { value: 'MSFT', label: 'MSFT' },
   { value: 'XRX', label: 'XRX' }
 ]
-
+ 
 
 const customStyles = {
   control: (base, state) => ({
@@ -47,6 +48,7 @@ function Desktopgraph() {
 	const onChange = (val)=>{
 		console.log(val);
 	}
+	const [modalShow, setModalShow] = useState(false);
 	const orderDetail = useSelector(state=>state.order.asset);
 	 const dispatch = useDispatch();
 	return (
@@ -96,7 +98,7 @@ function Desktopgraph() {
 	</div>
 
   <div className=" d-flex tradechart-buysell-buttons">
-	<SellButton/>
+	<input type="button" className="sell-button" onClick={()=>setModalShow(true)}  value="Sell" />
 
 
 	<div className=" d-flex chart-margin-lots">
@@ -126,8 +128,14 @@ function Desktopgraph() {
 		</div>
 		
 	</div> 
-	<BuyButton/>
+		<input type="button" className="buy-button" onClick={()=>setModalShow(true)}  value="buy" />
 	</div>
+
+
+      <BuyModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
 	</div>
 	</div>
 </>

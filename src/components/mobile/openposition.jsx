@@ -12,6 +12,8 @@ function OpenPositions() {
 const orderDetail = useSelector(state=>state.order.asset);
 	 const menuStatus = useSelector(state=>state.mobilemenu.mobilemenu.status)
     const selectedMenu = useSelector(state=>state.mobilemenu.mobilemenu.currentView)
+           const balance = useSelector(state=>state.balance.balance)
+   const financepanel = useSelector(state=>state.financepanel.financepanel)
 	
 	 const dispatch = useDispatch();
 	const [headSearchActive, setHeadSearchActive] = useState(true);
@@ -183,7 +185,7 @@ const searchWord=(SearchedString, StringToSearch)=>{
 
     <div className="open-positions-account-item">
             <div>Balance</div>
-             <div>0.00</div>
+             <div>${balance}</div>
     	</div>
       <div className="open-positions-account-item">	
       <div>Equity</div>
@@ -191,7 +193,7 @@ const searchWord=(SearchedString, StringToSearch)=>{
       	</div>
         <div className="open-positions-account-item">	
            <div>Free Margin</div>
-             <div>0.00</div>
+             <div>${balance}</div>
         </div>
 
        </div>
@@ -203,12 +205,12 @@ const searchWord=(SearchedString, StringToSearch)=>{
             <div className="open-positions-account-item">	
 
             <div>Used margin</div>
-             <div>0.00</div>
+             <div>${financepanel.usedmargin}</div>
              </div>
               <div className="open-positions-account-item">	
 
               <div>Open P&L</div>
-             <div className="balance__red">EUR 0.00</div>
+             <div className="balance__red">${financepanel.profit}</div>
              </div> 
 
   </div>

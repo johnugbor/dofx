@@ -20,8 +20,8 @@ import { buyEndpoint } from "../utilities/endpoints";
 import { sellEndpoint } from "../utilities/endpoints";
 
 
-  function BuyModal(props) {
-     const { register, handleSubmit, formState: { errors },getValues } = useForm();
+
+  function SellModal(props) {
       const [tabBg, setTabBg]  = useState(false);
       const toggleTab =()=>{
         setTabBg(!tabBg);
@@ -29,7 +29,7 @@ import { sellEndpoint } from "../utilities/endpoints";
       const onHide = props.onHide;
 
     const balance = useSelector(state=>state.balance.balance)
-   
+    const { register, handleSubmit, formState: { errors },getValues } = useForm();
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
      const orderDetails = useSelector(state=>state.order.asset);
@@ -99,7 +99,7 @@ import { sellEndpoint } from "../utilities/endpoints";
   }
 
 
- 
+
  
    const sell=(item)=>{
 
@@ -125,15 +125,15 @@ import { sellEndpoint } from "../utilities/endpoints";
       <Modal
         {...props}
         size="md"
-        className="modal"
-        aria-labelledby="buy-modal"
+        className="sellmodal"
+        aria-labelledby="sell-modal"
         centered
          animation={true}
           scrollable={true}
 
       >
         <Modal.Header >
-          <Modal.Title id="buy-modal" >
+          <Modal.Title id="sell-modal" >
 
             <div className="buy-popup-header">
             <div>
@@ -154,7 +154,7 @@ import { sellEndpoint } from "../utilities/endpoints";
         </Modal.Header>
         <Modal.Body>
         {isLoading&&<Image className="loadingspinner" src="/Iphone-spinner-2.gif"/>}
-          <form onSubmit={handleSubmit()}>
+          <form onSubmit={handleSubmit(buy)}>
          <div>
 
 
@@ -176,7 +176,7 @@ import { sellEndpoint } from "../utilities/endpoints";
                         </div>
             </div>
 
-
+ 
           <div>
         <div class="chart-sell-buy-field-input">
       <div class="field field__with-steps field__disabled">
@@ -284,15 +284,15 @@ import { sellEndpoint } from "../utilities/endpoints";
                 justify-content-between 
                  ">
 
-                  <Button  className="buy-button" onClick={handleSubmit(buy)}>
+                  <Button  className="buy-button" onClick={()=>handleSubmit(buy)}>
                       Buy
         </Button>
 
-              <Button type="button" className="sell-button" onClick={handleSubmit(sell)} >
+            <Button type="button" className="sell-button" onClick={handleSubmit(sell)} >
                     
        Sell
- 
-</Button>
+        </Button>
+
           </div> 
 
 
@@ -305,5 +305,5 @@ import { sellEndpoint } from "../utilities/endpoints";
     );
   }
 
-  export default BuyModal;
+  export default SellModal;
 

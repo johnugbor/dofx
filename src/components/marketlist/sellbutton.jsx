@@ -2,20 +2,22 @@ import React from 'react'
 import {useState} from 'react'
 import {Modal,Button} from 'react-bootstrap'
 import "../../styles/button.css"
-import BuyModal  from "./buymodal"
+import SellModal  from "./sellmodal"
 
 function SellButton(props) {
-	const [modalShow, setModalShow] = useState(false);
+	const [sellModalShow, setSellModalShow] = useState(false);
 
-  return (
+  const buttonText = props.buttonText;
+
+  return ( 
     <>
-      <Button  className="sell-button" onClick={() => setModalShow(true)}>
-        Sell
+      <Button  className="sell-button" onClick={() => setSellModalShow(true)}>
+        {buttonText}
       </Button>
 
-      <BuyModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
+      <SellModal
+        show={sellModalShow}
+        onHide={() => setSellModalShow(false)}
       />
     </>
   );

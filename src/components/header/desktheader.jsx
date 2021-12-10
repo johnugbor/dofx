@@ -70,7 +70,7 @@ function DesktHeader(props) {
   				</div>
           </div>
 
-         
+          
 
         <div className={`header-navigation ${settings__opened ? "settings__opened" : ""}`}>
          <div className=" header-navigation-item__user">

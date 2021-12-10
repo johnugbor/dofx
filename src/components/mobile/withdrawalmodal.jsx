@@ -28,7 +28,7 @@ function WithdrawalModal(props) {
  const Withdraw =(item)=>{
 
     setIsLoading(true);
-    axios.post(`${rootUrl}${withdrawEndpoint}`,{"amount":222},{headers:
+    axios.post(`${rootUrl}${withdrawEndpoint}`,item,{headers:
     {
       'Authorization' : `Bearer ${authTokens}`,
       'Content-Type' : 'application/json',
@@ -37,7 +37,7 @@ function WithdrawalModal(props) {
         if(resp.status === 200){
           setResetEmailSent(true);
       }
-      else{
+      else{ 
         setIsError(true)
       }
       })

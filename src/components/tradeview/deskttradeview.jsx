@@ -44,6 +44,8 @@ function DesktopTradeView(){
   
    const history = async()=>{
 
+   	try{
+
    	const response = await axios.get(`${rootUrl}${historyEndpoint}`,{headers:
     {
       'Authorization' : `Bearer ${authTokens}`,
@@ -54,11 +56,19 @@ function DesktopTradeView(){
    	if(status===200){
    		console.log(response.data.data)
    		dispatch(updateHistory(response.data.data))
+   	}  }
+
+   	catch(error){
+   		console.log(error)
    	}
+
+
    }
 
 
    const openposition = async()=>{
+   	try{
+
 
    	const response = await axios.get(`${rootUrl}${openpositionEndpoint}`,{headers:
     {
@@ -70,7 +80,11 @@ function DesktopTradeView(){
    	if(status===200){
    		console.log(response.data.data)
    		dispatch(updateOpenPosition(response.data.data))
+   	}}
+catch(error){
+   		console.log(error)
    	}
+   	
    }
 
 useEffect(() => {

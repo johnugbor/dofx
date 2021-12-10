@@ -17,18 +17,14 @@ function Trade() {
 	const orderDetail = useSelector(state=>state.order.asset);
 	 const menuStatus = useSelector(state=>state.mobilemenu.mobilemenu.status)
     const selectedMenu = useSelector(state=>state.mobilemenu.mobilemenu.currentView)
+       const balance = useSelector(state=>state.balance.balance)
+   const financepanel = useSelector(state=>state.financepanel.financepanel)
 	const chartheight =window.outerHeight-200;
 	 const dispatch = useDispatch();
 	 let iconStyles = { color: "white", fontSize: "1.5em",width:"2em" };
 	return (
 		<div className="mobile-trade">
 			
-  
-
-
-
-
-
 
 <header className="mobile-app-header">
 	<div className="mobile-header">
@@ -50,24 +46,24 @@ function Trade() {
 			 	<div className=""></div>
 			</div>
 
-
+   
    
  
 			<div className="mobile-menu-item">
 				<div className="mobile-menu-item-balance">
-					<div className="">€0.00</div>
+					<div className="">${balance}</div>
 					<div className="">
 						<span>Balance</span></div>
 				</div>
 				<div className="mobile-menu-item-balance">
-					<div className="">€0.00</div>
+					<div className="">${balance}</div>
 					<div className="">
 						<span>Free m</span>
 				</div>
 				</div>
 				<div className="mobile-menu-item-balance">
 					<div className="">
-						<span className="">EUR 0.00
+						<span className="">${financepanel.profit}
 						</span>
 					</div>
 					<div className="">
