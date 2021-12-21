@@ -128,7 +128,7 @@ function Desktopgraph() {
 		</div>
 		
 	</div> 
-		<input type="button" className="buy-button" onClick={()=>setModalShow(true)}  value="buy" />
+	<BuyButton/>
 	</div>
 
 
