@@ -29,4 +29,7 @@ export const buyEndpoint ="/api/buy/"
 export const closeEndpoint ="/api/closeposition/"
 export const historyEndpoint ="/api/closedposition/"
 export const openpositionEndpoint ="/api/openposition/"
+//assets endpoint
+
+export const assetEndpoint = "/api/assets/"
 

@@ -1,6 +1,6 @@
 import "../../styles/marketlist.css"
 import { Tooltip, OverlayTrigger } from 'react-bootstrap'
-import { useState } from 'react'
+import { useState ,useEffect} from 'react'
 import BuyButton from "./buybutton"
 import SellButton from "./sellbutton"
 import Lots, { RequiredMargin, PendingOrder } from "./lots"
@@ -9,15 +9,32 @@ import { update, edit, changeChart, changeGroup, changeSearch } from "../../stor
 import { useSelector, useDispatch } from 'react-redux'
 import BuyModal from "./buymodal"
 import AssetInfoModal from "./assetinfo";
+import axios from "axios"
+import {rootUrl} from "../utilities/constants";
+import { assetEndpoint } from "../utilities/endpoints"
 
 function MarketList(props) {
 	var LeftToggle = props.LeftToggleProps;
 	const [favouriteStar, setFavouriteStar] = useState(false);
 	const [searchExist, setSearchExist] = useState(false);
-
+	const dispatch = useDispatch()
 	const toggleStar = () => {
 		setFavouriteStar(!favouriteStar);
 	}
+	/* useEffect(
+		() => {
+			axios.get(`${rootUrl}{assetEndpoint}`).then(
+				(resp)=>{
+					if(resp.status===200){
+						console.log(resp.data);
+						dispatch(resp.data);
+					}
+				}
+			).catch(error=>{"Did not get data, check your network and try again"})
+
+
+		}
+	) */
 
 	const [trade, setTrade] = useState(false);
 
@@ -28,7 +45,7 @@ function MarketList(props) {
 	const groupData = useSelector(state => state.group.group)
 	const searchData = useSelector(state => state.search.search)
 
-	const dispatch = useDispatch()
+	
 
 	const onGroupSelectChange = (e) => {
 		const { value } = e.target;
