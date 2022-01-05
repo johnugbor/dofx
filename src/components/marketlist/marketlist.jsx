@@ -1,23 +1,45 @@
 import "../../styles/marketlist.css"
 import { Tooltip, OverlayTrigger } from 'react-bootstrap'
-import { useState } from 'react'
+import { useState ,useEffect} from 'react'
 import BuyButton from "./buybutton"
 import SellButton from "./sellbutton"
 import Lots, { RequiredMargin, PendingOrder } from "./lots"
 import AssetBalaance from "./assetbalance"
-import { update, edit, changeChart, changeGroup, changeSearch } from "../../store/slice"
+import { updateAsset, edit, changeChart, changeGroup, changeSearch } from "../../store/slice"
 import { useSelector, useDispatch } from 'react-redux'
 import BuyModal from "./buymodal"
 import AssetInfoModal from "./assetinfo";
+import axios from "axios"
+import {rootUrl} from "../utilities/constants";
+import { assetEndpoint } from "../utilities/endpoints"
 
 function MarketList(props) {
 	var LeftToggle = props.LeftToggleProps;
 	const [favouriteStar, setFavouriteStar] = useState(false);
 	const [searchExist, setSearchExist] = useState(false);
-
+	const authTokens = useSelector(state=>state.access.access).token
+	const dispatch = useDispatch()
 	const toggleStar = () => {
 		setFavouriteStar(!favouriteStar);
 	}
+	useEffect( 
+		() => {
+			axios.get(`${rootUrl}${assetEndpoint}`,{headers:
+				{
+				  'Authorization' : `Bearer ${authTokens}`,
+				  'Content-Type' : 'application/json',
+				}}).then(
+				(resp)=>{
+					if(resp.status===200){
+						console.log(resp.data);
+						dispatch(updateAsset(resp.data));
+					}
+				}
+			).catch(error=>{console.log("Did not get data, check your network and try again")})
+
+
+		}
+	) 
 
 	const [trade, setTrade] = useState(false);
 
@@ -28,7 +50,7 @@ function MarketList(props) {
 	const groupData = useSelector(state => state.group.group)
 	const searchData = useSelector(state => state.search.search)
 
-	const dispatch = useDispatch()
+	
 
 	const onGroupSelectChange = (e) => {
 		const { value } = e.target;
@@ -100,22 +122,22 @@ function MarketList(props) {
 					<tbody>
 						{marketData.map((index) => (
 							(
-								(searchWord(index.data.clearName, searchData) > 0) ||
+								(searchWord(index.clearName, searchData) > 0) ||
 								(
 									(searchData.length > 0 ? !true : !false)
-									&& (groupData === index.data.group || groupData === "All" || (groupData === "Most Popular" && index.data.popular === true))
+									&& (groupData === index.group || groupData === "All" || (groupData === "Most Popular" && index.popular === true))
 								)
 							) && <tr class="asset ">
 								<td>
 									<div class="asset-info">
 
-										<img class="asset-icon" src={index.data.img} />
+										<img class="asset-icon" src={index.img} />
 										<div class="asset-info-name">{index.symbol}</div>
 									</div>
 								</td>
 
-								<td><span class="asset-stat ">${index.data.bid}</span></td>
-								<td><span title="0" class="asset-stat asset-mover asset-stat__red">{index.data.percentage} %</span></td>
+								<td><span class="asset-stat ">${index.bid}</span></td>
+								<td><span title="0" class="asset-stat asset-mover asset-stat__red">{index.percentage} %</span></td>
 								<td>
 									<div class="asset-buttons">
 

@@ -15,7 +15,7 @@ function DesktopTradeView(){
 	const dispatch = useDispatch();
 	const historyData = useSelector(state=>state.history.history)
 	const openPositionData = useSelector(state=>state.openposition.openposition)
-	 const authTokens = useSelector(state=>state.access.access).token
+	 const authTokens = useSelector(state=>state.access.access).token 
 	const [LeftToggle,setLeftToggle ] =useState(false);
   const indexLeftToggle =()=>{
   	setLeftToggle(!LeftToggle);}
