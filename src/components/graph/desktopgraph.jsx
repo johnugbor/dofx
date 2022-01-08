@@ -91,7 +91,7 @@ function Desktopgraph() {
 
 	<div className="qt-box d-flex chart-margin-lots">
 		
-	<p> <img className="img-qt" src={orderDetail.img} alt="" />  {orderDetail.displayName}  ${orderDetail.priceOpen}</p>
+	<p> <img className="img-qt" src={orderDetail.img} alt="" />  {orderDetail.name}  ${orderDetail.price_open}</p>
 		
 		
 	</div> 
@@ -122,7 +122,7 @@ function Desktopgraph() {
 
 
 		<div className="margin-chart-container-small">
-			<span className="chart-margin-text">${orderDetail.priceOpen}</span>
+			<span className="chart-margin-text">${orderDetail.price_open}</span>
 		</div>
 
 		</div>

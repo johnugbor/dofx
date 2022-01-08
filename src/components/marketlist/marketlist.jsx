@@ -124,7 +124,7 @@ function MarketList(props) {
 					<tbody>
 						{marketData.map((index) => (
 							(
-								(searchWord(index.clearName, searchData) > 0) ||
+								(searchWord(index.name, searchData) > 0) ||
 								(
 									(searchData.length > 0 ? !true : !false)
 									&& (groupData === index.group || groupData === "All" || (groupData === "Most Popular" && index.popular === true))
