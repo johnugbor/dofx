@@ -62,7 +62,8 @@ function MarketList(props) {
 		() => {
 			
 			getTokenAndgetUserUuid()
-		},[favouriteStar]
+		}
+		// ,[favouriteStar]
 	) 
 
 	const [trade, setTrade] = useState(false);
