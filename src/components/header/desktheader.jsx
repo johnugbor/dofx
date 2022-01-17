@@ -8,6 +8,7 @@ function DesktHeader(props) {
    const settings__opened = useSelector(state=>state.menu.settings_opened)
    const balance = useSelector(state=>state.balance.balance)
    const financepanel = useSelector(state=>state.financepanel.financepanel)
+   const authTokens = useSelector(state=>state.access.access).token
   const toggleSideBar =()=>{
     dispatch(toggleMenu(!settings__opened));
   }

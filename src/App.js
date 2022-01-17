@@ -24,11 +24,28 @@ import { connect } from "react-redux";
 import {setAccessTokenUuid} from "./store/slice";
 import ProtectedRoute from "./protectedroute";
 import NewDesktop from "./newdesktop";
+import {useDispatch,useSelector} from "react-redux";
 function App(props) {
-
+  const dispatch = useDispatch()
   const [width, setWidth] = useState( window.innerWidth );
   const [sideBarToggleState, setSideBarToggleState] =useState(false);
+  const  getTokenAndgetUserUuid=()=>{
+    if(localStorage.getItem("access_token")&&localStorage.getItem("account_owner")){
+      const token =JSON.parse(localStorage.getItem("access_token"));
+      const id =JSON.parse(localStorage.getItem("account_owner"));
+      dispatch(setAccessTokenUuid({
+       "token":token,
+       "uuid":id,
+       "recovery_email":"",
+       "token_identifier":"",
+       "code_token":"",
 
+     }))
+  return true;
+     };
+
+
+      }
   useEffect(() => {
     window.addEventListener('mousemove', () => {});
         window.addEventListener('resize', handleWindowSizeChange());
@@ -60,18 +77,7 @@ const    setUuid =(data)=>{
      //this.setState({userUuid:id});
    }
 
-  const  getTokenAndgetUserUuid=()=>{
-     if(localStorage.getItem("access_token")&&localStorage.getItem("account_owner")){
-       const token =JSON.parse(localStorage.getItem("access_token"));
-       const id =JSON.parse(localStorage.getItem("account_owner"));
-      // this.props.setAccessTokenUuid({
-      //   "token":token,
-      //   "uuid":id
-   return true;
-      };
-
-
-       }
+  
 
 
     const isMobile = width <= 500;

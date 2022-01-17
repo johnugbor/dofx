@@ -71,7 +71,8 @@ axios.post(`${rootUrl}${loginAfterTwoFaEndpoint}`,{ "email":accessData.recovery_
     "currency":resp.data.user.currency,
     "country":resp.data.user.phone_number
   }))
-      setToken(resp.data.access_token);
+
+  setToken(resp.data.access_token);
       setUuid(resp.data.user.id);
       setLoggedIn(true);
       setIsLoading(false);
@@ -157,7 +158,7 @@ axios.post(`${rootUrl}${loginAfterTwoFaEndpoint}`,{ "email":accessData.recovery_
 useEffect(()=>{
   currentBalance();
   financepanel();
-},[isLoggedIn])
+},[authTokens])
 
   if(isLoggedIn){
     return <Redirect push to = {{pathname:"/"}} />;

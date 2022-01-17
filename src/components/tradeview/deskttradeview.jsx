@@ -66,7 +66,7 @@ function DesktopTradeView(){
    }
 
 
-   const openposition = async()=>{
+ const openposition = async()=>{
    	try{
 
 
@@ -90,7 +90,7 @@ catch(error){
 useEffect(() => {
 	history();
 	openposition();
-}, [activeTab])
+}, [authTokens])
 
 	return(
 	<>

@@ -4,7 +4,7 @@ import { combineReducers } from "redux"
 export const assetSlice = createSlice({
 	name: 'asset',
 	initialState: {
-		asset: [
+		data: [
 
 
 			
@@ -270,7 +270,7 @@ export const assetSlice = createSlice({
 					"bid": 1.18136,
 					"ask": 1.18138,
 					"spread_diff": 0,
-					"symbol": "EURSE",
+					"symbol": "EURSEK",
 "chart_symbol": "FX_IDC:EURSEK",
 					"digits": 5,
 					"currency": "EUR",
@@ -1426,7 +1426,7 @@ export const assetSlice = createSlice({
 					"margin_initial": 0,
 					"mode": 0,
 					"profit_mode": 0,
-					"group": "Most Popular",
+					"group": "Cryptocurrencies",
 					"marketState": 0,
 					"stops_level": 0,
 					"lot_currency": "EUR",
@@ -1441,9 +1441,9 @@ export const assetSlice = createSlice({
 		],
 	},
 	reducers: {
-		update: (state, action) => ({
+		updateAsset: (state, action) => ({
 
-			...state, asset:action.payload
+			...state, data:action.payload
 		}),
 	},
 

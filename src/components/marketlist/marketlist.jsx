@@ -12,7 +12,7 @@ import AssetInfoModal from "./assetinfo";
 import axios from "axios"
 import {rootUrl} from "../utilities/constants";
 import { assetEndpoint } from "../utilities/endpoints"
-
+import {setAccessTokenUuid,setProfile,setFinPanel,setBalance} from "../../store/slice";
 function MarketList(props) {
 	var LeftToggle = props.LeftToggleProps;
 	const [favouriteStar, setFavouriteStar] = useState(false);
@@ -23,24 +23,46 @@ function MarketList(props) {
 	const toggleStar = () => {
 		setFavouriteStar(!favouriteStar);
 	}
+
+	const  getTokenAndgetUserUuid=()=>{
+		if(localStorage.getItem("access_token")&&localStorage.getItem("account_owner")){
+		  var token =JSON.parse(localStorage.getItem("access_token"));
+		  console.log(token)
+		 var id =JSON.parse(localStorage.getItem("account_owner"));
+		 console.log(token)
+		  dispatch(setAccessTokenUuid({
+		   "token":token,
+		   "uuid":id,
+		   "recovery_email":"",
+		   "token_identifier":"",
+		   "code_token":"",
+	
+		 }));
+		 setFavouriteStar(true);
+		 axios.get(`${rootUrl}${assetEndpoint}`,{headers:
+			{
+			  'Authorization' : `Bearer ${authTokens}`,
+			  'Content-Type' : 'application/json',
+			}}).then(
+			(resp)=>{
+				if(resp.status===200){
+					
+				  
+					dispatch(updateAsset(resp.data.data));
+				}
+			}
+		).catch(error=>{console.log("Did not get data, check your network and try again")})
+
+		
+		}
+		 else {console.log("Login....")}
+		}
+
 	useEffect( 
 		() => {
-			axios.get(`${rootUrl}${assetEndpoint}`,{headers:
-				{
-				  'Authorization' : `Bearer ${authTokens}`,
-				  'Content-Type' : 'application/json',
-				}}).then(
-				(resp)=>{
-					if(resp.status===200){
-						console.log(resp.data);
-					  
-						dispatch(updateAsset(resp.data));
-					}
-				}
-			).catch(error=>{console.log("Did not get data, check your network and try again")})
-
-
-		}
+			
+			getTokenAndgetUserUuid()
+		},[favouriteStar]
 	) 
 
 	const [trade, setTrade] = useState(false);
@@ -48,7 +70,7 @@ function MarketList(props) {
 	const toggleTradeButton = () => {
 		setTrade(!trade);
 	}
-	const marketData = useSelector(state => state.asset.asset)
+	const marketData = useSelector(state => state.asset.data)
 	const groupData = useSelector(state => state.group.group)
 	const searchData = useSelector(state => state.search.search)
 
@@ -138,7 +160,7 @@ function MarketList(props) {
 									</div>
 								</td>
 
-								<td><span class="asset-stat ">${index.bid}</span></td>
+								<td><span class="asset-stat ">${index.price}</span></td>
 								<td><span title="0" class="asset-stat asset-mover asset-stat__red">{index.percentage} %</span></td>
 								<td>
 									<div class="asset-buttons">
