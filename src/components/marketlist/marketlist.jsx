@@ -14,6 +14,8 @@ import {rootUrl} from "../utilities/constants";
 import { assetEndpoint } from "../utilities/endpoints"
 import {setAccessTokenUuid,setProfile,setFinPanel,setBalance} from "../../store/slice";
 function MarketList(props) {
+	const cancelToken = axios.CancelToken;
+	const source = cancelToken.source();
 	var LeftToggle = props.LeftToggleProps;
 	const [favouriteStar, setFavouriteStar] = useState(false);
 	const [searchExist, setSearchExist] = useState(false);
@@ -23,7 +25,7 @@ function MarketList(props) {
 	const toggleStar = () => {
 		setFavouriteStar(!favouriteStar);
 	}
-
+	const MINUTE_MS = 60000;
 	const  getTokenAndgetUserUuid=()=>{
 		if(localStorage.getItem("access_token")&&localStorage.getItem("account_owner")){
 		  var token =JSON.parse(localStorage.getItem("access_token"));
@@ -58,13 +60,22 @@ function MarketList(props) {
 		 else {console.log("Login....")}
 		}
 
-	useEffect( 
+/* 	useEffect( 
 		() => {
 			
 			getTokenAndgetUserUuid()
 		}
 		// ,[favouriteStar]
-	) 
+	)  */
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			getTokenAndgetUserUuid();
+		}, MINUTE_MS);
+	  
+		return () => clearInterval(interval); 
+	  }, [])
+
 
 	const [trade, setTrade] = useState(false);
 
