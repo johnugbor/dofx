@@ -66,18 +66,18 @@ export default function SignUp (props){
 
 <div className ="form-row form-margin margin-bottom">
                 <div className ="col password-field-container">
-                    <input type ="text" name ="fullname" placeholder ="Name & surname" 
+                    <input type ="text" name ="full_name" placeholder ="Name & surname" 
                     
                     className ="form-control  login-form-field-input" 
-                     {...register("fullname",{
+                     {...register("full_name",{
                       required: " Full name is required",
                       pattern: {
                         value: /^([\w]{3,})+\s+([\w\s]{3,})+$/i,
                         message: "Full name is required"
                       }
                     })}/>
-                     {errors.fullname && (<p style={{ color: "red" }}> {
-                        errors.fullname.message}</p>)}
+                     {errors.full_name && (<p style={{ color: "red" }}> {
+                        errors.full_name.message}</p>)}
                 </div>
                 </div>
 
@@ -137,7 +137,7 @@ export default function SignUp (props){
       value={phonenumber}
       onChange={setPhonenumber}
       className ="form-control login-form-field-input" 
-        {...register("phonenumber",{
+        {...register("phone_number",{
                       required: "Phone number is required",})}
                                         /> 
 {errors.phonenumber && (
