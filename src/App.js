@@ -89,12 +89,12 @@ const    setUuid =(data)=>{
           <Router>
             <Switch >
 
-              <Route  exact path="/" exact component={Trade} />
-              <Route exact  path="/market" component={Market} />
-              <Route  exact path="/open-position" component={Openposition} />
-              <Route  exact path="/pending-position" component={Pendingposition} />
-              <Route  exact path="/history" component={History} />
-              <Route  exact path="/transaction-history" component={Transactionhistory} />
+              <ProtectedRoute  exact path="/" exact component={Trade} />
+              <ProtectedRoute exact  path="/market" component={Market} />
+              <ProtectedRoute  exact path="/open-position" component={Openposition} />
+              <ProtectedRoute  exact path="/pending-position" component={Pendingposition} />
+              <ProtectedRoute  exact path="/history" component={History} />
+              <ProtectedRoute  exact path="/transaction-history" component={Transactionhistory} />
                <Route exact path="/login/" component={Login}/>
                <Route exact path="/two-fa/" component={TwoFactorAuth}/>
                <Route exact path="/signup/" component={Signup}/>
@@ -118,7 +118,7 @@ const    setUuid =(data)=>{
 
         <><Router>
         <Switch>
-        <Route exact path="/" component={NewDesktop}/>
+        <ProutedRoute exact path="/" component={NewDesktop}/>
 
         
         <Route exact path="/login/" component={Login}/>
