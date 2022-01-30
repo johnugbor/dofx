@@ -418,4 +418,6 @@ button.tabs-control-item.active{
     overflow: visible;
 
 }
-
+.mobile-table-row.mobile-asset-value{
+padding-left: 2px;
+}
