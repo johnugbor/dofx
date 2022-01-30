@@ -189,10 +189,13 @@ function BuyModal(props) {
         </div>
       ) : (
         <Modal.Body>
-          {isLoading && (
-            <Image className="loadingspinner" src="/Iphone-spinner-2.gif" />
-          )}
-          {errorMessage && "Insufficient fund"}
+          <div>
+            {" "}
+            {isLoading && (
+              <Image className="loadingspinner" src="/Iphone-spinner-2.gif" />
+            )}
+          </div>
+          <div>{errorMessage && <p>Insufficient fund</p>}</div>
           <div className="d-flex w-100 justify-content-between  border border-white my-0 tab-shadow">
             <Button
               className={`w-50 ${buySellTab ? "buy-tab " : "sell-tab "}`}
