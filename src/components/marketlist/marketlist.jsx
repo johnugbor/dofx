@@ -94,7 +94,7 @@ function MarketList(props) {
   };
   /* 	useEffect( 
 		() => {
-			
+			 
 			getTokenAndgetUserUuid()
 		}
 		// ,[favouriteStar]

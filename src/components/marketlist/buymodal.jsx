@@ -181,11 +181,15 @@ function BuyModal(props) {
         </button>
       </Modal.Header>
       {purchaseSuccess ? (
-        <div>
-          <p className="p-5">Successfull</p>
-          <Button className="ml-5 mb-5" onClick={() => closeModal()}>
-            <h3>OK</h3>
-          </Button>
+        <div className="p-4">
+          <div>
+            <p>Trade was placed successfully</p>
+          </div>
+          <div className="text-center ">
+            <button className="popup-ok w-40" onClick={() => closeModal()}>
+              Ok
+            </button>
+          </div>
         </div>
       ) : (
         <Modal.Body>
