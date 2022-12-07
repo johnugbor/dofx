@@ -34,7 +34,7 @@ export const assetSlice = createSlice({
         price_open: 1.2237,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/15a0bd3235c2282bd533b07bc1b504f0.png",
+        img: "https://cdn-plus.olymptrade.com/fe/293_221205151726/bundle/images/pair-icon-eurusd.img.svg",
       },
       {
         bid: 1.18136,
@@ -65,7 +65,7 @@ export const assetSlice = createSlice({
         price_open: 1.1137,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/5d5b138c81c54b5d5d752393425688ce.png",
+        img: "https://assets.xm-cdn.com/static/research-portal/instruments_icons/eurnok.svg",
       },
       {
         bid: 54321.19,
@@ -96,7 +96,7 @@ export const assetSlice = createSlice({
         price_open: 55489.87,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/880b8dffd101a34eef5c7886eeaaf52b.png",
+        img: "https://assets.xm-cdn.com/static/research-portal/instruments_icons/btcusd.svg",
       },
       {
         bid: 1.18136,
@@ -127,7 +127,7 @@ export const assetSlice = createSlice({
         price_open: 1.137,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/82117d81a2e6b3354b67dae376e13b86.png",
+        img: "https://cdn-plus.olymptrade.com/fe/293_221205151726/bundle/images/pair-icon-audcad.img.svg",
       },
       {
         bid: 1.18136,
@@ -158,7 +158,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/b67a14c395bdbd290683f66b5bc3cc7a.png",
+        img: "https://trading212equities.s3.eu-central-1.amazonaws.com/GBPUSD.png",
       },
       {
         bid: 1.18136,
@@ -189,7 +189,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/a8bb8512e5b6d5bf2707c9544b02878d.png",
+        img: "https://cdn-plus.olymptrade.com/fe/293_221205151726/bundle/images/pair-icon-audchf.img.svg",
       },
       {
         bid: 1.18136,
@@ -220,7 +220,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/b67a14c395bdbd290683f66b5bc3cc7a.png",
+        img: "https://www.spectre.ai/assets/images/assets/AUDUSD-top.svg?v=2.13",
       },
       {
         bid: 3178.22,
