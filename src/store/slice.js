@@ -251,7 +251,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/05ca9eb2700a2c84faaf6bad2bebcad7.png",
+        img: "https://static.okx.com/cdn/assets/imgs/221/5F33E3F751873296.png",
       },
       {
         bid: 1.18136,
@@ -282,7 +282,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/fed3bb8e56889aaaaa5709f1540d6f74.png",
+        img: "https://assets.xm-cdn.com/static/research-portal/instruments_icons/eursek.svg",
       },
       {
         bid: 1.18136,
@@ -313,7 +313,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/8f69a8cf7699f37d4754da88550816be.png",
+        img: "https://assets.xm-cdn.com/static/research-portal/instruments_icons/usdjpy.svg",
       },
       {
         bid: 1.18136,
@@ -344,7 +344,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/da80fe9d4c036050bff3b893c2224960.png",
+        img: "https://cdn-plus.olymptrade.com/fe/293_221205151726/bundle/images/pair-icon-usdcad.img.svg",
       },
       {
         bid: 1.18136,
