@@ -220,7 +220,7 @@ img {
   font-family: "roboto-medium";
   color: #fff;
   word-break: break-all;
-  font-size: 14px;
+  font-size: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
