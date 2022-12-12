@@ -375,7 +375,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/d0246a829528ee7c47a3543e81b9648b.png",
+        img: "https://is3-ssl.mzstatic.com/image/thumb/Purple7/v4/72/82/f0/7282f092-4973-d343-e214-4971cdc18ee7/source/150x150bb.jpg",
       },
       {
         bid: 1.18136,
@@ -406,7 +406,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/44f203641e320c9a7723fa2c87825d3b.png",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgrIQmDkPht2ohU-iZDo-ZsM-uf_WPRAefIheEYFthVx0QmFXuNGD2&usqp=CAU",
       },
       {
         bid: 1.18136,
@@ -437,7 +437,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/e1738a3c0b11d1520790dc676994b51d.png",
+        img: "https://dynamic-assets.coinbase.com/da39dfe3632bf7a9c26b5aff94fe72bc1a70850bc488e0c4d68ab3cf87ddac277cd1561427b94acb4b3e37479a1f73f1c37ed311c11a742d6edf512672aea7bb/asset_icons/a55046bc53c5de686bf82a2d9d280b006bd8d2aa1f3bbb4eba28f0c69c7597da.png",
       },
       {
         bid: 1.18136,
@@ -468,7 +468,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/4ea3cd3185b6e3fb9a0de9712a1b9fce.png",
+        img: "https://s2.coinmarketcap.com/static/img/coins/64x64/1831.png",
       },
       {
         bid: 1.18136,
@@ -499,7 +499,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/40bc0c08e3aa82a4a315ded750561278.png",
+        img: "https://s2.coinmarketcap.com/static/img/coins/64x64/131.png",
       },
       {
         bid: 1.18136,
@@ -530,7 +530,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/cc42f4f0bcfad6c8c9ed7e58dd34f76f.png",
+        img: "https://s2.coinmarketcap.com/static/img/coins/64x64/1765.png",
       },
       {
         bid: 1.18136,
@@ -592,7 +592,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/465ac55bf18e80eb1c572d90f11f2f99.png",
+        img: "https://assets.xm-cdn.com/static/research-portal/instruments_icons/audjpy.svg",
       },
       {
         bid: 1.18136,
@@ -654,7 +654,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/4674011af87db1d6f541d3caba6c0fe9.png",
+        img: "https://assets.xm-cdn.com/static/research-portal/instruments_icons/nzdusd.svg",
       },
       {
         bid: 1.18136,
@@ -1150,7 +1150,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/ecda4c3d97320877d78af58a522dff56.png",
+        img: "https://s2.coinmarketcap.com/static/img/coins/64x64/2.png",
       },
       {
         bid: 1.18136,
@@ -1181,7 +1181,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/abaf78d46a72f3921faf76b3222a699c.png",
+        img: "https://s2.coinmarketcap.com/static/img/coins/64x64/1376.png",
       },
       {
         bid: 1.18136,
@@ -1213,7 +1213,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.101investing.com/web-trader/media/ec4581f31da7e4d152647ce0c497d0dc.png",
+        img: "https://s2.coinmarketcap.com/static/img/coins/64x64/328.png",
       },
       {
         bid: 1.18136,
