@@ -685,7 +685,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.tradedwell.com/web-trader/media/de5d6eb81739178f927235d377384224.png",
+        img: "https://assets.xm-cdn.com/static/research-portal/instruments_icons/cadchf.svg",
       },
       {
         bid: 1.18136,
@@ -716,7 +716,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.tradedwell.com/web-trader/media/5e4f1f009edc913b5630f61aa7a39846.png",
+        img: "https://logodix.com/logo/1772421.png",
       },
       {
         bid: 1.18136,
@@ -747,7 +747,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.tradedwell.com/web-trader/media/72aa1b666d74fd11c7fcce6a60725cbf.png",
+        img: "https://1000logos.net/wp-content/uploads/2016/10/Logo-Boeing.png",
       },
       {
         bid: 1.18136,
@@ -778,7 +778,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.tradedwell.com/web-trader/media/c4465ca23dc3c5acadd861412db8d9cf.png",
+        img: "https://1000logos.net/wp-content/uploads/2018/10/Alibaba-Logo.png",
       },
       {
         bid: 1.18136,
@@ -809,7 +809,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.tradedwell.com/web-trader/media/17896907bbb61ddf8e983a08cb7a3a3a.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg",
       },
       {
         bid: 1.18136,
@@ -840,7 +840,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.tradedwell.com/web-trader/media/2bed397f3f062754d0a658df95063234.png",
+        img: "https://cdn-icons-png.flaticon.com/512/732/732221.png",
       },
       {
         bid: 1.18136,
@@ -871,7 +871,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.tradedwell.com/web-trader/media/90ef5f0e1c44b7dada77f7ccd44549be.png",
+        img: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
       },
       {
         bid: 1.18136,
@@ -902,7 +902,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.tradedwell.com/web-trader/media/895cb03cd1ae9cb964cae1b62b3dc820.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png",
       },
       {
         bid: 1.18136,
@@ -995,7 +995,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.tradedwell.com/web-trader/media/c52bab92d0b8c875e42326bc7f47e22e.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_logo_%28gray%29.svg/180px-BMW_logo_%28gray%29.svg.png",
       },
       {
         bid: 1.18136,
@@ -1026,7 +1026,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.tradedwell.com/web-trader/media/87d691762349a394ac43326c2adda71d.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Coca-Cola_logo.svg/190px-Coca-Cola_logo.svg.png",
       },
       {
         bid: 1.18136,
@@ -1057,7 +1057,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.tradedwell.com/web-trader/media/d85a9fd79eea32a3d75e7377b31da0e9.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Tesla_Motors.svg/109px-Tesla_Motors.svg.png",
       },
       {
         bid: 1.18136,
@@ -1119,7 +1119,7 @@ export const assetSlice = createSlice({
         price_open: 1.181,
         popular: true,
         mover: 0,
-        img: "https://www.tradedwell.com/web-trader/media/84306aa5618bfd78a21f2b4b870b788b.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/603px-Amazon_logo.svg.png",
       },
       {
         bid: 1.18136,
