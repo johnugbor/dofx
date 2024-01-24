@@ -4,7 +4,11 @@
 
 -- cd into the folder of the application
 
--- run npm install to install the packages
+-- run 
 
--- then run npm start to start the application
+npm install to install the packages
+
+-- then run 
+
+npm start to start the application
 
